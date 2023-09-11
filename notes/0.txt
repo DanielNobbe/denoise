@@ -1,0 +1,11 @@
+Types of noise (from wikipedia image noise):
+- Gaussian noise: Due to thermal noise in sensor and amplification
+    - Algorithms exist for this kind of noise
+- Salt & pepper noise
+    - aka impulse noise
+    - Due to AD conversion errors, bit errors in transmission and other reasons
+    - Median filter can remove it quite effectively (I guess this will have a negative effect on edge sharpness)
+    - Not much info on this on wikipedia so probably not so important
+    - Have seen it happen sometimes in some of my own photos, although rawtherapee has some good ways to deal with it (probably median filtering).
+        pretty rare though, might also have been due to chromatic aberration?
+- 
