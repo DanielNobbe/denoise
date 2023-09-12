@@ -12,7 +12,16 @@ Types of noise (from wikipedia image noise):
     - Poisson distribution: amount of light entering pixel is affected by the quantization of light. Since this dictates a poisson distribution, each pixel will have slightly different intensities
     - each pixel is kind of 'filled up', by a Poisson distribution scaled in probability by the intensity of that point
     - So we can either 'fill up' each pixel completely through modeling a poisson distribution, but that will take a lot of computation steps (it's a Markov chain)
-        - Or can we determine directly? Cumulative probability of 
+        - Or can we determine directly? Poisson distr measures how many events happen in a certain interval
+        - let's say we have a shutter time of 200ms (ss=1/5)
+        - Shot noise is the noise due to the differences in photons hitting each pixel in this time
+        - for one pixel, the probability for each number of photons hitting it is:
+            p(k) = lambda^k exp(-lambda) / k!
+        This gives us a distribution for number of photons hitting. We can sample from this distribution.
+        lambda is the expected value of number of photons hitting in a specified time, can be split out in p * t? (check this)
+        If we have images that are noise-less, lambda is exactly the value of intensity divided by the intensity/energy of a single photon
+        Then by sampling we get k, the sampled number of photons. --> Should work even paralellised
+        --> Just check how the parameters truly work
 
 TODO:
  - Gaussian noise: Soren
