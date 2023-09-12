@@ -8,4 +8,16 @@ Types of noise (from wikipedia image noise):
     - Not much info on this on wikipedia so probably not so important
     - Have seen it happen sometimes in some of my own photos, although rawtherapee has some good ways to deal with it (probably median filtering).
         pretty rare though, might also have been due to chromatic aberration?
-- 
+- shot noise:
+    - Poisson distribution: amount of light entering pixel is affected by the quantization of light. Since this dictates a poisson distribution, each pixel will have slightly different intensities
+    - each pixel is kind of 'filled up', by a Poisson distribution scaled in probability by the intensity of that point
+    - So we can either 'fill up' each pixel completely through modeling a poisson distribution, but that will take a lot of computation steps (it's a Markov chain)
+        - Or can we determine directly? Cumulative probability of 
+
+TODO:
+ - Gaussian noise: Soren
+ - Shot noise: Daniel
+ - PyTorch tutorial: Soren
+
+ - set up training environment
+ - Set up API endpoint on FastAPI
