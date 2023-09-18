@@ -25,13 +25,18 @@ def salt_and_pepper(img, is_subpixel):
     return img
 
 
-def shot_noise(img):
+def shot_noise(img, pixel_sensitivity=0.001):
     # shot noise is largely due to quantization of light (photons)
-    # we sample a new version of the image where each pixel has
-    # expected value of the original pixel value
+    # pixel sensitivity is combination of quantum efficiency and general, default 0.001 gives low noise
+    # sensitivity of the sensor, it is 1/number of photons needed for a signal of 255
     rng = np.random.default_rng()
 
-    new_img = rng.poisson(lam=img)  # automatically uses the size of lam
+    img = img.copy()
+    img = img / 255  # convert to float
+    number_photons = img / pixel_sensitivity
+
+    new_img = rng.poisson(lam=number_photons)  # automatically uses the size of lam
+    new_img = new_img * pixel_sensitivity * 255  # convert back to int
     # TODO: Probably need to modify either lam or the 
     # output to reflect the true quantization effect, which is much smaller than
     # the values
