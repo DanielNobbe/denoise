@@ -99,7 +99,7 @@ def main():
     # )
     input_transforms = tv.transforms.Compose(
         [
-            ShotNoise(0.01)
+            ShotNoise(sensitivity=-4.8, sensitivity_sigma=1.2)
         ]
     )
 
