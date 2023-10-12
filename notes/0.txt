@@ -30,3 +30,4 @@ TODO:
 
  - set up training environment
  - Set up API endpoint on FastAPI
+ - look into salt&ppper noise again, might be dependent on image intensity (see photodiode leakage current)
