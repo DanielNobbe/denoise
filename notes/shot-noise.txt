@@ -1,0 +1,14 @@
+In the very basic implementation, the poisson takes the integer values of the pixels 
+and samples poisson over that.
+We should instead tune the poisson to the number of actual photons hitting the sensor
+Signal S = QE * N * t (where QE is quantum efficiency, N photon flux /s)
+QE is dependent on the wavelength, see https://hamamatsu.magnet.fsu.edu/articles/images/quantumefficiencyfigure3.jpg
+Back illuminated CCDs go up to 75% for green-red light, and slope off outside the visual spectrum
+This would be a good range, let's say QE is 70%
+Based on this we could convert the signal to a number of photons, e.g.
+N * t = S / QE
+This does not take into account the bucket effect though, which requires multiple photons to fill
+up a bucket before an electron is issued / or a significant enough charge is issued.
+These are called pixel wells, but this might not be the same shot noise, since ISO affects this
+Although it is counterintuitive that two photons will already trigger a pixel to work..
+TODO: Look into pixel well noise effects
