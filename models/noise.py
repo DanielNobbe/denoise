@@ -34,7 +34,6 @@ class ShotNoise:
         else:
             sensitivity = self.pixel_sensitivity
         
-        print(f"Sensitivity: {sensitivity}")
         number_photons = img / sensitivity
         output = torch.poisson(input=number_photons, generator=self.rng)
         output = torch.clamp(output * sensitivity, 0.0, 1.0)
