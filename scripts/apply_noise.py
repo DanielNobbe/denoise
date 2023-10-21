@@ -40,14 +40,20 @@ def shot_noise(img, pixel_sensitivity=0.001):
     # the values
     return new_img
 
-def gaussian_noise(img, mean=0, var=10, sigma_multiplier=0.5):
-    new_img = np.zeros(img.shape, np.float32)
+def gaussian_noise(img, mean=3, var=10, sigma_multiplier=1.25):
     sigma = var ** sigma_multiplier
     gaussian_filter = np.random.normal(mean, sigma, (img.shape[0], img.shape[1]))
-    for channel in range(img.shape[2]):
-        new_img = img[:, :, channel] + gaussian_filter
+    if len(img.shape) == 3: # we have RGB colors in image
+        new_img1 = img[:, :, 0] + gaussian_filter
+        new_img2 = img[:, :, 1] + gaussian_filter
+        new_img3 = img[:, :, 2] + gaussian_filter
+        new_img = np.dstack((new_img1, new_img2, new_img3))
+    else: # we have greyscale img
+        new_img = img + gaussian_filter
     cv2.normalize(new_img, new_img, 0, 255, cv2.NORM_MINMAX, dtype=-1)
     new_img = new_img.astype(np.uint8)
+    cv2.imshow("gaussian_noise_result", new_img)
+    cv2.waitKey(0)
     return new_img
 
 def main():
