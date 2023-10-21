@@ -55,7 +55,7 @@ def gaussian_noise(img, mean=3, var=10, sigma_multiplier=1.25):
     return new_img
 
 def main():
-    path_to_file = 'test_data/test.png' #'data/div2k/original/val/0801.png'
+    path_to_file = 'data/small/test.png'
     os.makedirs('results', exist_ok=True)
     image_path = './' + path_to_file
     img = cv2.imread(image_path)
