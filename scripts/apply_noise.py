@@ -52,8 +52,6 @@ def gaussian_noise(img, mean=3, var=10, sigma_multiplier=1.25):
         new_img = img + gaussian_filter
     cv2.normalize(new_img, new_img, 0, 255, cv2.NORM_MINMAX, dtype=-1)
     new_img = new_img.astype(np.uint8)
-    cv2.imshow("gaussian_noise_result", new_img)
-    cv2.waitKey(0)
     return new_img
 
 def main():
