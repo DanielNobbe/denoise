@@ -2,8 +2,8 @@ import os
 from typing import Any
 import lightning.pytorch as pl
 from lightning.pytorch.utilities.types import OptimizerLRScheduler
-from models.unet import UNet
-from torch import nn, optim, utils
+from models.unet import UNet, UNetModel
+from torch import utils
 import torchvision as tv
 from PIL import Image
 
@@ -51,41 +51,6 @@ class ImageDataset(tv.datasets.VisionDataset):
         
         return x, y
 
-
-class UNetModel(pl.LightningModule):
-    def __init__(self, model):
-        super().__init__()
-        self.model = model
-        self.loss_fn = nn.MSELoss()
-    
-    def training_step(self, batch, batch_idx):
-        x, y = batch
-        y_hat = self.model(x)
-        loss = self.loss_fn(y_hat, y)
-        self.log("train_loss", loss)
-        return loss
-    
-    def validation_step(self, batch, batch_idx):
-        x, y = batch
-        y_hat = self.model(x)
-        loss = self.loss_fn(y_hat, y)
-        self.log("val_loss", loss)
-
-        if batch_idx == 0:
-            sample_inputs = x
-            sample_targets = y
-            sample_results = y_hat
-
-            in_grid = tv.utils.make_grid(sample_inputs)
-            trg_grid = tv.utils.make_grid(sample_targets)
-            res_grid = tv.utils.make_grid(sample_results)
-            self.logger.experiment.add_image("inputs", in_grid, self.current_epoch)
-            self.logger.experiment.add_image("targets", trg_grid, self.current_epoch)
-            self.logger.experiment.add_image("results", res_grid, self.current_epoch)
-    
-    def configure_optimizers(self):
-        optimizer = optim.Adam(self.parameters(), lr=1e-3)
-        return optimizer
 
 def main():
     logger = pl.loggers.TensorBoardLogger("lightning_logs")
