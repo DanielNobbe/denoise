@@ -40,9 +40,8 @@ def shot_noise(img, pixel_sensitivity=0.001):
     # the values
     return new_img
 
-def gaussian_noise(img, mean=3, var=10, sigma_multiplier=1.25):
-    sigma = var ** sigma_multiplier
-    gaussian_filter = np.random.normal(mean, sigma, (img.shape[0], img.shape[1]))
+def gaussian_noise(img, mean=10, var=50):
+    gaussian_filter = np.random.normal(mean, np.sqrt(var), (img.shape[0], img.shape[1]))
     if len(img.shape) == 3: # we have RGB colors in image
         new_img1 = img[:, :, 0] + gaussian_filter
         new_img2 = img[:, :, 1] + gaussian_filter
@@ -55,7 +54,7 @@ def gaussian_noise(img, mean=3, var=10, sigma_multiplier=1.25):
     return new_img
 
 def main():
-    path_to_file = 'data/small/test.png'
+    path_to_file = 'non-existing.png'
     os.makedirs('results', exist_ok=True)
     image_path = './' + path_to_file
     img = cv2.imread(image_path)
