@@ -1,7 +1,4 @@
-import numpy as np
 import pickle
-import streamlit as st
-from pages.homepage import homepage
 
 def load_model():
     return
@@ -11,4 +8,4 @@ def load_model():
 data = load_model()
 
 if __name__ == '__main__':
-    homepage()
+    model = None
