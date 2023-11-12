@@ -53,7 +53,7 @@ def main():
     img = cv2.imread(image_path)
     # img = salt_and_pepper(img, is_subpixel=True)
     # img = shot_noise(img)
-    img = gaussian_noise2(img)
+    img = gaussian_noise(img)
     cv2.imwrite("./results/test.png", img)
 
 if __name__ == '__main__':
