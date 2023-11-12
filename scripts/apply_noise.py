@@ -42,7 +42,7 @@ def shot_noise(img, pixel_sensitivity=0.001):
 
 def gaussian_noise(img, var=[50,50,80]):
     new_img = np.random.normal(img, np.sqrt(var))
-    cv2.normalize(new_img, new_img, 0, 255, cv2.NORM_MINMAX, dtype=-1)
+    new_img = np.clip(new_img, 0, 255)
     new_img = new_img.astype(np.uint8)
     return new_img
 
