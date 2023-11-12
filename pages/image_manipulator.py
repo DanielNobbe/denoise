@@ -22,12 +22,12 @@ uploaded_img = st.file_uploader("Choose image", type=["jpg", "jpeg", "png"])
 if uploaded_img:
     try:
         st.write("Uploaded image:")
-        st.image(uploaded_img, width=300)
+        st.image(uploaded_img)
         img = iio.imread(uploaded_img)
         img_with_noise = add_noise(img)
         if img_with_noise is not None:
-            image_bytes = cv2.imencode('.jpg', img_with_noise[...,::-1])[1].tobytes()  # open CV reads as BGR
-            st.image(image_bytes, width=300)
+            image_bytes = cv2.imencode('.jpg', img_with_noise[:,:,::-1])[1].tobytes()  # open CV reads as BGR
+            st.image(image_bytes)
             st.write("Download image with noise:")
             st.download_button(label="Download image", data=image_bytes, file_name='img_with_noise.png', mime='image/png')
     except Exception as e:
