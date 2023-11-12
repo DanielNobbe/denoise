@@ -26,7 +26,7 @@ if uploaded_img:
         img = iio.imread(uploaded_img)
         img_with_noise = add_noise(img)
         if img_with_noise is not None:
-            image_bytes = cv2.imencode('.jpg', img_with_noise[::-1])[1].tobytes()  # open CV reads as BGR
+            image_bytes = cv2.imencode('.jpg', img_with_noise[...,::-1])[1].tobytes()  # open CV reads as BGR
             st.image(image_bytes, width=300)
             st.write("Download image with noise:")
             st.download_button(label="Download image", data=image_bytes, file_name='img_with_noise.png', mime='image/png')
