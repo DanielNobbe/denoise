@@ -57,11 +57,7 @@ def main():
 
     unet = UNet(out_channels=3)
     model = UNetModel(model=unet)
-    # transforms = tv.transforms.Compose(
-    #     [
-            
-    #     ]
-    # )
+
     input_transforms = tv.transforms.Compose(
         [
             ShotNoise(sensitivity=-4.8, sensitivity_sigma=1.2)
