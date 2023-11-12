@@ -24,10 +24,7 @@ Types of noise (from wikipedia image noise):
         --> Just check how the parameters truly work
 
 TODO:
- - Gaussian noise: Soren
- - Shot noise: Daniel
  - PyTorch tutorial: Soren
-
  - set up training environment
  - Set up API endpoint on FastAPI
  - look into salt&ppper noise again, might be dependent on image intensity (see photodiode leakage current)
