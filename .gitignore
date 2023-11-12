@@ -3,6 +3,14 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+# JetBrains extensions
+*.iml
+misc.xml
+modules.xml
+Project_Default.xml
+vcs.xml
+workspace.xml
+
 # C extensions
 *.so
 
@@ -159,4 +167,5 @@ cython_debug/
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
 
-data/
+/data/*
+/results/*
