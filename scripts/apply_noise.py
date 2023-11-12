@@ -40,27 +40,20 @@ def shot_noise(img, pixel_sensitivity=0.001):
     # the values
     return new_img
 
-def gaussian_noise(img, mean=10, var=50):
-    gaussian_filter = np.random.normal(mean, np.sqrt(var), (img.shape[0], img.shape[1]))
-    if len(img.shape) == 3: # we have RGB colors in image
-        new_img1 = img[:, :, 0] + gaussian_filter
-        new_img2 = img[:, :, 1] + gaussian_filter
-        new_img3 = img[:, :, 2] + gaussian_filter
-        new_img = np.dstack((new_img1, new_img2, new_img3))
-    else: # we have greyscale img
-        new_img = img + gaussian_filter
+def gaussian_noise(img, var=[50,50,80]):
+    new_img = np.random.normal(img, np.sqrt(var))
     cv2.normalize(new_img, new_img, 0, 255, cv2.NORM_MINMAX, dtype=-1)
     new_img = new_img.astype(np.uint8)
     return new_img
 
 def main():
-    path_to_file = 'non-existing.png'
+    path_to_file = './sportshorts.png'
     os.makedirs('results', exist_ok=True)
     image_path = './' + path_to_file
     img = cv2.imread(image_path)
     # img = salt_and_pepper(img, is_subpixel=True)
     # img = shot_noise(img)
-    img = gaussian_noise(img)
+    img = gaussian_noise2(img)
     cv2.imwrite("./results/test.png", img)
 
 if __name__ == '__main__':
