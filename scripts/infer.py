@@ -46,7 +46,7 @@ def main():
     patches = patches.squeeze(0)
     # NOTE: Only compatible with a single image for now
     results = []
-    for patch in patches:
+    for patch in patches:  # use batches?
         results.append(
             model.model(patch.unsqueeze(0))
             # TODO: Disable batchnorm (needs 4D input)
