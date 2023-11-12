@@ -3,6 +3,14 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+# JetBrains extensions
+*.iml
+misc.xml
+modules.xml
+Project_Default.xml
+vcs.xml
+workspace.xml
+
 # C extensions
 *.so
 
@@ -160,5 +168,5 @@ cython_debug/
 #.idea/
 
 data/
-
+/results/*
 lightning_logs/
