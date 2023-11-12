@@ -2,13 +2,13 @@ import streamlit as st
 import imageio.v3 as iio
 import cv2
 from PIL import UnidentifiedImageError
-from scripts.apply_noise import shot_noise, salt_and_pepper
+from scripts.apply_noise import shot_noise, salt_and_pepper, gaussian_noise
 
 def add_noise(img):
     st.write("""### Add noise""") # H3 tag
-    noise_choise = st.selectbox("Choose noise type", options=["Gaussian noise", "Shot noise", "Salt & pepper noise"])
+    noise_choise = st.selectbox("Choose noise type", options=["", "Gaussian noise", "Shot noise", "Salt & pepper noise"])
     if noise_choise == "Gaussian noise":
-        return
+        return gaussian_noise(img)
     elif noise_choise == "Shot noise":
         st.write("Image with shot noise applied:")
         return shot_noise(img)
