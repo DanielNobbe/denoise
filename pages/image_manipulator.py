@@ -1,6 +1,7 @@
 import streamlit as st
 import imageio.v3 as iio
 import cv2
+from PIL import UnidentifiedImageError
 from scripts.apply_noise import shot_noise, salt_and_pepper
 
 def add_noise(img):
@@ -30,8 +31,8 @@ def main():
                 st.image(image_bytes)
                 st.write("Download image with noise:")
                 st.download_button(label="Download image", data=image_bytes, file_name='img_with_noise.png', mime='image/png')
-        except Exception as e:
-            print(e)
+        except UnidentifiedImageError as e:
+            st.write("Image in bad format")
             st.write(e)
 
 if __name__ == '__main__':
