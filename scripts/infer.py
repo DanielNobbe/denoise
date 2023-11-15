@@ -5,6 +5,55 @@ from models.noise import ShotNoise
 from PIL import Image
 from kornia.contrib import extract_tensor_patches, combine_tensor_patches
 import os
+import imageio as iio
+
+
+class ImageLoader:
+    def __init__(self):
+        self.tensor_transform = tv.transforms.ToTensor()
+
+    def load_from_PIL(self, image):
+        image = self.tensor_transform(image)
+        return image.unsqueeze(0)
+
+    def load_from_path(self, image_path):
+        img = Image.open(image_path)
+        return self.load_from_PIL(img)
+
+    def load_from_array(self, image_array):
+        image = torch.from_numpy(image_array).permute((2,0,1))
+        image = image.float() / 255
+        return image.unsqueeze(0)
+
+
+@torch.no_grad()
+def infer_model(img, model, crop_size):
+    image = img
+    print(f"Image shape {image.shape}")
+    patches = extract_tensor_patches(image, crop_size, stride=256, allow_auto_padding=True)
+    # if the window size/stride does not fit into the image, 
+    # this function just strips off the last bit of the image..
+    # would be better if it pads it.
+    print(f"Patches shape: {patches.shape}")
+
+    original_size = img.shape[2:]  # this is with padding
+    # reassemble = combine_tensor_patches(patches, original_size=image_size, window_size=crop_size, stride=256, allow_auto_unpadding=True)
+    # return
+    patches = patches.squeeze(0)
+    # NOTE: Only compatible with a single image for now
+    results = []
+    for patch in patches:  # use batches?
+        result = model.model(patch.unsqueeze(0))
+        results.append(
+            result
+            # TODO: Disable batchnorm (needs 4D input)
+        )
+    results = torch.stack(results, dim=1)
+    print(f"Results shape: {results.shape}")
+    print(f"Original size {original_size}")
+    result = combine_tensor_patches(results, original_size=original_size, window_size=crop_size, stride=crop_size[0], allow_auto_unpadding=True)
+
+    return result
 
 
 @torch.no_grad()
