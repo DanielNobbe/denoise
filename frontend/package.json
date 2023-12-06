@@ -4,6 +4,9 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "dev:https": "npm-run-all --parallel dev:https-server dev:https-proxy",
+    "dev:https-server": "next dev -p 3001",
+    "dev:https-proxy": "npx local-ssl-proxy --key localhost-key.pem --cert localhost.pem --source 3000 --target 3001",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
