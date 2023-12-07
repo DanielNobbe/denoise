@@ -12,7 +12,9 @@ lightning = "2.1.0"
 torchvision = "^0.15.2"
 tensorboardx = "^2.6.2.2"
 tensorboard = "^2.14.1"
-kornia = "^0.7.0"
+kornia = {path = "../kornia"}
+streamlit = "^1.28.1"
+imageio = "^2.32.0"
 
 
 [build-system]
