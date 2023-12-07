@@ -7,7 +7,7 @@ from torch import utils
 import torchvision as tv
 from PIL import Image
 
-from models.noise import ShotNoise
+from models.noise import ShotNoise, GaussianNoise, SaltAndPepperNoise
 
 
 class ImageDataset(tv.datasets.VisionDataset):
@@ -60,7 +60,9 @@ def main():
 
     input_transforms = tv.transforms.Compose(
         [
-            ShotNoise(sensitivity=-4.8, sensitivity_sigma=1.2)
+            ShotNoise(sensitivity=-1.8, sensitivity_sigma=1.2),
+            GaussianNoise(rgb_variance=(0.10,0.10,0.10)),
+            SaltAndPepperNoise(prob_black=0.0001, prob_white=0.0001, subpixel=False),
         ]
     )
 
