@@ -39,3 +39,19 @@ class ShotNoise:
         output = torch.clamp(output * sensitivity, 0.0, 1.0)
         return output
     
+
+class GaussianNoise:
+    def __init__(self, rgb_variance=(0.20,0.20,0.25)):
+        self.rgb_variance = torch.tensor(rgb_variance).unsqueeze(-1).unsqueeze(-1)
+        self.rng = torch.Generator()
+        # TODO: Allow single integer variance
+        # TODO: Should this always be integers?
+
+    def __call__(self, img: torch.Tensor):
+        # input image should be tensor, so values in range [0,1]
+        # fictional number scaling with the number of photons
+        # it defines how many photons are necessary to reach a value of 1
+        # NOTE: This will be different between images, not just between data sources
+        output = torch.normal(mean=img, std=torch.sqrt(self.rgb_variance), generator=self.rng)
+        output = torch.clamp(output, 0.0, 1.0)
+        return output
