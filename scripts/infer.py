@@ -5,8 +5,6 @@ from models.noise import ShotNoise
 from PIL import Image
 from kornia.contrib import extract_tensor_patches, combine_tensor_patches
 import os
-import imageio as iio
-
 
 class ImageLoader:
     def __init__(self):
@@ -29,16 +27,9 @@ class ImageLoader:
 @torch.no_grad()
 def infer_model(img, model, crop_size):
     image = img
-    print(f"Image shape {image.shape}")
     patches = extract_tensor_patches(image, crop_size, stride=256, allow_auto_padding=True)
-    # if the window size/stride does not fit into the image, 
-    # this function just strips off the last bit of the image..
-    # would be better if it pads it.
-    print(f"Patches shape: {patches.shape}")
 
     original_size = img.shape[2:]  # this is with padding
-    # reassemble = combine_tensor_patches(patches, original_size=image_size, window_size=crop_size, stride=256, allow_auto_unpadding=True)
-    # return
     patches = patches.squeeze(0)
     # NOTE: Only compatible with a single image for now
     results = []
@@ -46,11 +37,8 @@ def infer_model(img, model, crop_size):
         result = model.model(patch.unsqueeze(0))
         results.append(
             result
-            # TODO: Disable batchnorm (needs 4D input)
         )
     results = torch.stack(results, dim=1)
-    print(f"Results shape: {results.shape}")
-    print(f"Original size {original_size}")
     result = combine_tensor_patches(results, original_size=original_size, window_size=crop_size, stride=crop_size[0], allow_auto_unpadding=True)
 
     return result
@@ -59,7 +47,6 @@ def infer_model(img, model, crop_size):
 @torch.no_grad()
 def infer(img):
     crop_size = (256, 256)
-    output_dir = 'infer-results'
 
     unet = UNet(out_channels=3)
     model = UNetModel.load_from_checkpoint(
@@ -75,15 +62,9 @@ def infer(img):
 
     image = image.unsqueeze(0)
     patches = extract_tensor_patches(image, crop_size, stride=256, allow_auto_padding=True)
-    # if the window size/stride does not fit into the image, 
-    # this function just strips off the last bit of the image..
-    # would be better if it pads it.
-    print(f"Patches shape: {patches.shape}")
-    print(f"Image shape {image.shape[2:]}")
 
     original_size = img.size[::-1]  # this is with padding
-    # reassemble = combine_tensor_patches(patches, original_size=image_size, window_size=crop_size, stride=256, allow_auto_unpadding=True)
-    # return
+
     patches = patches.squeeze(0)
     # NOTE: Only compatible with a single image for now
     results = []
@@ -93,7 +74,6 @@ def infer(img):
             # TODO: Disable batchnorm (needs 4D input)
         )
     results = torch.stack(results, dim=1)
-    print(f"Results shape: {results.shape}")
     result = combine_tensor_patches(results, original_size=original_size, window_size=crop_size, stride=crop_size[0], allow_auto_unpadding=True)
 
     return result.numpy()
@@ -125,15 +105,8 @@ def main():
     
     image = image.unsqueeze(0)
     patches = extract_tensor_patches(image, crop_size, stride=256, allow_auto_padding=True)
-    # if the window size/stride does not fit into the image, 
-    # this function just strips off the last bit of the image..
-    # would be better if it pads it.
-    print(f"Patches shape: {patches.shape}")
-    print(f"Image shape {image.shape[2:]}")
 
     original_size = img.size[::-1]  # this is with padding
-    # reassemble = combine_tensor_patches(patches, original_size=image_size, window_size=crop_size, stride=256, allow_auto_unpadding=True)
-    # return
     patches = patches.squeeze(0)
     # NOTE: Only compatible with a single image for now
     results = []
