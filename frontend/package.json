@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@azure/msal-browser": "^3.6.0",
+    "antd": "^5.12.1",
     "next": "14.0.3",
     "react": "^18",
     "react-dom": "^18",
