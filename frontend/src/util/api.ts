@@ -1,6 +1,7 @@
 // @ts-ignore
 import toast from "./toast";
 import { InteractionRequiredAuthError } from "@azure/msal-browser";
+import { IError } from "@/interfaces/common";
 
 export const Api = {
     getDenoise: () => {
@@ -18,7 +19,9 @@ const fetchFromServer = async(method: string, path: string, data: any = undefine
         if (Math.floor(response.status / 100) !== 2) {
             const res = await response.json();
             if (res.Errors) {
-                console.log("An error occurred: " + res.Errors);
+                res.Errors.map((err: IError) => {
+                    toast("error", err.Message);
+                })
             }
         }
     } catch (error) {
