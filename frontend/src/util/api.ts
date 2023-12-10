@@ -1,4 +1,3 @@
-// @ts-ignore
 import toast from "./toast";
 import { InteractionRequiredAuthError } from "@azure/msal-browser";
 import { IError } from "@/interfaces/common";
