@@ -1,6 +1,14 @@
 import { ColumnsType } from "antd/es/table";
 import {ButtonType} from "antd/es/button";
 import {InputProps} from "antd";
+import {IDenoise} from "@/interfaces/denoise";
+
+export interface IStore {
+    denoise: IDenoise[];
+    setDenoise: Function;
+    loadingDenoise: boolean;
+    setLoadingDenoise: Function;
+}
 
 export interface IErrorResponse {
     Message: string;
