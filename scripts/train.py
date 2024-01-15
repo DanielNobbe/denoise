@@ -22,7 +22,7 @@ class ImageDataset(tv.datasets.VisionDataset):
         self.files = os.listdir(root)
         self.tensor_transform = tv.transforms.ToTensor()
         self.input_transforms = input_transforms
-        self.random_crop = random_crop
+        self.random_cropper =  tv.transforms.RandomResizedCrop(size=random_crop, scale=(0.1, 1.0))
 
     def __len__(self):
         return len(self.files)
@@ -34,9 +34,7 @@ class ImageDataset(tv.datasets.VisionDataset):
         image = self.tensor_transform(Image.open(path))
 
         # apply random cropping
-        crop = tv.transforms.RandomCrop.get_params(image, self.random_crop)
-        image = tv.transforms.functional.crop(image, *crop)
-
+        image = self.random_cropper(image)
 
         if self.transforms is not None:
             # NOTE: Only deterministic transforms
