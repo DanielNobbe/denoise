@@ -107,10 +107,17 @@ class UNet(nn.Module):
     
 
 class UNetModel(pl.LightningModule):
-    def __init__(self, net):
+    def __init__(self, net, load_from_checkpoint='', eval_mode=False):
         super().__init__()
         self.net = net
         self.loss_fn = nn.MSELoss()
+
+        if eval_mode:
+            self.net.eval()
+
+        # if load_from_checkpoint:
+
+            
     
     def training_step(self, batch, batch_idx):
         x, y = batch

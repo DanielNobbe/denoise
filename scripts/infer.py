@@ -1,7 +1,7 @@
 import torch
-from models.unet import UNet, UNetModel
+from denoise.models.unet import UNet, UNetModel
 import torchvision as tv
-from models.noise import ShotNoise
+from denoise.noise import ShotNoise
 from PIL import Image
 from kornia.contrib import extract_tensor_patches, combine_tensor_patches
 import os
@@ -50,7 +50,7 @@ def infer(img):
 
     unet = UNet(out_channels=3)
     model = UNetModel.load_from_checkpoint(
-        'colab_lightning_logs/version_0/checkpoints/epoch=115-step=1856.ckpt',
+        'colab_lightning_logs/version_0/checkpoints/netKEY-epoch=115-step=1856.ckpt',
         net=unet,
         map_location=torch.device('cpu')
     )
@@ -83,11 +83,11 @@ def main():
     crop_size = (256, 256)
     output_dir = 'infer-results'
     os.makedirs(output_dir, exist_ok=True)
-
+    model_type = 'unet'
 
     unet = UNet(out_channels=3)
     model = UNetModel.load_from_checkpoint(
-        'colab_lightning_logs/version_0/checkpoints/epoch=115-step=1856.ckpt',
+        'colab_lightning_logs/version_0/checkpoints/netKEY-epoch=115-step=1856.ckpt',
         net=unet,
         map_location=torch.device('cpu')
     )
