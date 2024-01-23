@@ -8,3 +8,8 @@ def get_model(model_name):
         return TorchScriptModel
     else:
         raise NotImplementedError
+    
+
+# TODO: Add a model that first does colour based classical denoising
+# and then does neural denoising (now only intensity based, not colour based)
+    # could even be applied in greyscale
