@@ -51,7 +51,7 @@ def infer(img):
     unet = UNet(out_channels=3)
     model = UNetModel.load_from_checkpoint(
         'colab_lightning_logs/version_0/checkpoints/epoch=115-step=1856.ckpt',
-        model=unet,
+        net=unet,
         map_location=torch.device('cpu')
     )
 
@@ -70,7 +70,7 @@ def infer(img):
     results = []
     for patch in patches:  # use batches?
         results.append(
-            model.model(patch.unsqueeze(0))
+            model.net(patch.unsqueeze(0))
             # TODO: Disable batchnorm (needs 4D input)
         )
     results = torch.stack(results, dim=1)
@@ -86,7 +86,7 @@ def main():
     unet = UNet(out_channels=3)
     model = UNetModel.load_from_checkpoint(
         'colab_lightning_logs/version_0/checkpoints/epoch=115-step=1856.ckpt',
-        model=unet,
+        net=unet,
         map_location=torch.device('cpu')
     )
 
@@ -112,7 +112,7 @@ def main():
     results = []
     for patch in patches:  # use batches?
         results.append(
-            model.model(patch.unsqueeze(0))
+            model.net(patch.unsqueeze(0))
             # TODO: Disable batchnorm (needs 4D input)
         )
     results = torch.stack(results, dim=1)

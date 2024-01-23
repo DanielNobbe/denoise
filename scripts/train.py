@@ -56,7 +56,7 @@ def main():
     logger = pl.loggers.TensorBoardLogger("lightning_logs")
 
     unet = UNet(out_channels=3)
-    model = UNetModel(model=unet)
+    model = UNetModel(net=unet)
 
     input_transforms = tv.transforms.Compose(
         [
