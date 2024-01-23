@@ -34,7 +34,7 @@ def infer_model(img, model, crop_size):
     # NOTE: Only compatible with a single image for now
     results = []
     for patch in patches:  # use batches?
-        result = model.model(patch.unsqueeze(0))
+        result = model.net(patch.unsqueeze(0))
         results.append(
             result
         )
@@ -83,14 +83,16 @@ def main():
     crop_size = (256, 256)
     output_dir = 'infer-results'
     os.makedirs(output_dir, exist_ok=True)
+
+
     unet = UNet(out_channels=3)
     model = UNetModel.load_from_checkpoint(
         'colab_lightning_logs/version_0/checkpoints/epoch=115-step=1856.ckpt',
         net=unet,
         map_location=torch.device('cpu')
     )
-
     model.eval()
+
 
     test_image_path = 'data/div2k/subset/val/0804.png'
 
