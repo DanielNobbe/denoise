@@ -84,11 +84,10 @@ def main():
     output_dir = 'infer-results'
     os.makedirs(output_dir, exist_ok=True)
     model_type = 'unet'
+    # model_load_args = {'map_location': torch.device('cpu')}
 
-    unet = UNet(out_channels=3)
     model = UNetModel.load_from_checkpoint(
         'colab_lightning_logs/version_0/checkpoints/netKEY-epoch=115-step=1856.ckpt',
-        net=unet,
         map_location=torch.device('cpu')
     )
     model.eval()
