@@ -107,18 +107,25 @@ class UNet(nn.Module):
     
 
 class UNetModel(pl.LightningModule):
-    def __init__(self, net, load_from_checkpoint='', eval_mode=False):
+    def __init__(self, checkpoint=None, eval_mode=False, **load_kwargs):
+        # checkpoint: path to checkpoint file (lightning)
         super().__init__()
-        self.net = net
+        self.net = UNet(out_channels=3)
         self.loss_fn = nn.MSELoss()
 
         if eval_mode:
             self.net.eval()
 
-        # if load_from_checkpoint:
-
-            
+        if checkpoint:
+            self.load_from_checkpoint(checkpoint, **load_kwargs)
     
+    @classmethod
+    def load(cls, checkpoint, **load_kwargs):
+        net = UNet(out_channels=3)
+        model = cls.load_from_checkpoint(checkpoint, net=net, **load_kwargs)
+
+        return model
+
     def training_step(self, batch, batch_idx):
         x, y = batch
         y_hat = self.net(x)

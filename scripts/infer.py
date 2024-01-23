@@ -1,5 +1,6 @@
 import torch
 from denoise.models.unet import UNet, UNetModel
+from denoise.models import get_model
 import torchvision as tv
 from denoise.noise import ShotNoise
 from PIL import Image
@@ -84,14 +85,11 @@ def main():
     output_dir = 'infer-results'
     os.makedirs(output_dir, exist_ok=True)
     model_type = 'unet'
-    # model_load_args = {'map_location': torch.device('cpu')}
+    model_load_args = {'map_location': torch.device('cpu')}
 
-    model = UNetModel.load_from_checkpoint(
-        'colab_lightning_logs/version_0/checkpoints/netKEY-epoch=115-step=1856.ckpt',
-        map_location=torch.device('cpu')
-    )
-    model.eval()
+    arch = get_model(model_type)
 
+    model = arch.load(checkpoint='colab_lightning_logs/version_0/checkpoints/netKEY-epoch=115-step=1856.ckpt', eval_mode=True, **model_load_args)
 
     test_image_path = 'data/div2k/subset/val/0804.png'
 
