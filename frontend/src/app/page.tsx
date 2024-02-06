@@ -13,13 +13,10 @@ export default function Home() {
     },
   ]
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
+    <main className="flex min-h-screen flex-col items-center justify-between p-5">
       <h1 className="text-3xl font-bold">
         Welcome to Denoise
       </h1>
-      <h3 className="text-l font-semibold">
-        Begin by selecting on of the pages from the sidebar
-      </h3>
       <br />
       <Testdata />
       <h2 className="text-2xl font-bold pt-10 pb-4">
