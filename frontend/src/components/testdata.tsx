@@ -43,6 +43,7 @@ export default function Testdata() {
     };
 
     const handleClick = (event: any) => {
+        return;
         event.preventDefault();
         fetchData();
     };
@@ -130,11 +131,6 @@ export default function Testdata() {
                 <CardDescription style={{marginLeft: "418px"}}>
                     Combining de-noising, de-blurring, and color correction technologies, our image enhancement solution delivers unparalleled results by first eliminating noise and blur, then refining color accuracy and balance. This holistic approach ensures that images are not only clearer and sharper but also exhibit vibrant, true-to-life colors, resulting in stunning visual transformations.
                 </CardDescription>
-            </div>
-
-            <div>
-                <button onClick={handleClick} style={{borderStyle: "dotted"}}>FETCH DATA &nbsp;</button>
-                {data}
             </div>
         </div>
     );
