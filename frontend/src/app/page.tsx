@@ -1,11 +1,6 @@
-import { Metadata } from "next";
 import Testdata from "@/components/testdata";
 import Testdata2 from "@/components/testdata2";
 import Testdata3 from "@/components/testdata3";
-
-export const metadata: Metadata = {
-  title: `(${process.env.NEXT_PUBLIC_ENV_NAME}) Denoise | Home`
-};
 
 export default function Home() {
     return (

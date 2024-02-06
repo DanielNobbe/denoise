@@ -1,8 +1,7 @@
 'use client'
-import {useState} from "react";
+
 import {ReactCompareSlider, ReactCompareSliderHandle, ReactCompareSliderImage} from 'react-compare-slider';
 import styled from "styled-components";
-import {Card} from "antd";
 
 const imageWidth: number = 400;
 const imageHeight: number = 200;
@@ -34,20 +33,6 @@ const CardsContainer = styled.div`
 `;
 
 export default function Testdata() {
-    const [data, setData] = useState("No data fetched as of yet");
-
-    const fetchData = async () => {
-        const req = await fetch('https://catfact.ninja/fact');
-        const newData = await req.json();
-        return setData(newData);
-    };
-
-    const handleClick = (event: any) => {
-        return;
-        event.preventDefault();
-        fetchData();
-    };
-
     return (
         <div style={{marginTop: "50px"}}>
             <CardsContainer>

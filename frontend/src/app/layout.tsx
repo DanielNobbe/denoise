@@ -6,6 +6,7 @@ import Link from "next/link";
 const SidebarLayer = dynamic(() => import('@/components/sidebar'), {
   ssr: false
 });
+
 export default function RootLayout({ children }: IComponentChildren) {
   return (
     <html lang="en">
