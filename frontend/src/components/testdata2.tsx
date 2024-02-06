@@ -1,5 +1,7 @@
 'use client'
+
 import {useState} from "react";
+
 export default function Testdata2() {
     const [data, setData] = useState("No data fetched as of yet");
 
