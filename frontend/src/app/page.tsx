@@ -1,45 +1,28 @@
 import { Metadata } from "next";
 import Testdata from "@/components/testdata";
+import Testdata2 from "@/components/testdata2";
+import Testdata3 from "@/components/testdata3";
 
 export const metadata: Metadata = {
   title: `(${process.env.NEXT_PUBLIC_ENV_NAME}) Denoise | Home`
 };
 
 export default function Home() {
-  const linksToApps = [
-    {
-      title: "Wikipedia",
-      url: "https://www.wikipedia.com/"
-    },
-  ]
-  return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-10">
-      <h1 className="text-3xl font-bold" style={{width: "100%", marginLeft: "50px"}}>
-        Denoise: Enhance Your Images
-      </h1>
-      <div style={{fontSize: "20px", width: "100%", marginLeft: "50px"}}>
-        Rediscover lost details and sharpen every pixel with our advanced image enhancement suite
-      </div>
-      <br />
-      <Testdata />
-      <h2 className="text-2xl font-bold pt-10 pb-4">
-        External Links
-      </h2>
-      <div className="flex flex-wrap gap-4">
-        {linksToApps.map((link, index) => (
-            <a
-                key={index}
-                href={link.url}
-                target="_blank"
-                className="w-40 h-40 rounded-md border-2 link-card"
-                style={{borderColor: process.env.NEXT_PUBLIC_PRIMARY_COLOR as string, boxShadow: "1px 1px 3px 0 rgba(0, 0, 0, 0.5)"}}
-            >
-              <p className="text-lg p-2">
-                {link.title}
-              </p>
-            </a>
-        ))}
-      </div>
-    </main>
-  )
+    return (
+        <main className="flex min-h-screen flex-col items-center justify-between p-10">
+            <h1 className="text-3xl font-bold" style={{width: "100%", marginLeft: "50px"}}>
+                Denoise: Enhance Your Images
+            </h1>
+            <div style={{fontSize: "20px", width: "100%", marginLeft: "50px"}}>
+                Rediscover lost details and sharpen every pixel with our advanced image enhancement suite
+            </div>
+            <Testdata />
+            <div style={{fontSize: "20px", width: "100%", marginLeft: "50px"}}>
+                <Testdata2 />
+            </div>
+            <div style={{fontSize: "20px", width: "100%", marginLeft: "50px"}}>
+                <Testdata3 />
+            </div>
+        </main>
+    )
 }
