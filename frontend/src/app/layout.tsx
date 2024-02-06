@@ -3,19 +3,19 @@ import {IComponentChildren} from "@/interfaces/common";
 import dynamic from "next/dynamic";
 import Link from "next/link";
 
-const AuthenticationLayer = dynamic(() => import('@/components/authentication'), {
+const SidebarLayer = dynamic(() => import('@/components/sidebar'), {
   ssr: false
 });
-
 export default function RootLayout({ children }: IComponentChildren) {
   return (
     <html lang="en">
       <body>
-        {/*<AuthenticationLayer>*/}
+        <SidebarLayer>
           {children}
-          <Link prefetch={true} href={'/'} />
-          <Link prefetch={true} href={'/denoise'} />
-        {/*</AuthenticationLayer>*/}
+          <Link href={'/'} />
+          <Link href={'/denoise'} />
+          <Link href={'/imagemanipulator'} />
+        </SidebarLayer>
       </body>
     </html>
   )
