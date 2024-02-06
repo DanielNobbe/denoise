@@ -11,11 +11,11 @@ export default function RootLayout({ children }: IComponentChildren) {
   return (
     <html lang="en">
       <body>
-        <AuthenticationLayer>
+        {/*<AuthenticationLayer>*/}
           {children}
           <Link prefetch={true} href={'/'} />
           <Link prefetch={true} href={'/denoise'} />
-        </AuthenticationLayer>
+        {/*</AuthenticationLayer>*/}
       </body>
     </html>
   )
