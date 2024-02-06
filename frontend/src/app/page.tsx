@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import Testdata from "@/components/testdata";
 
 export const metadata: Metadata = {
   title: `(${process.env.NEXT_PUBLIC_ENV_NAME}) Denoise | Home`
@@ -20,6 +21,7 @@ export default function Home() {
         Begin by selecting on of the pages from the sidebar
       </h3>
       <br />
+      <Testdata />
       <h2 className="text-2xl font-bold pt-10 pb-4">
         External Links
       </h2>
