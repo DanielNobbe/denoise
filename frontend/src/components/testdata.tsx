@@ -6,12 +6,12 @@ import styled from "styled-components";
 const imageWidth: number = 400;
 const imageHeight: number = 200;
 
-const CardDescription = styled.div`
+export const CardDescription = styled.div`
     font-weight: normal;
     font-size: 13px;
     width: ${imageWidth}px;
 `;
-const CardTitleButton = styled.div`
+export const CardTitleButton = styled.div`
     margin-left: auto;
     margin-right: 0;
     text-align: center;
@@ -24,11 +24,11 @@ const CardTitleButton = styled.div`
     height: 23px;
     cursor: pointer;
 `;
-const CardTitle = styled.div`
+export const CardTitle = styled.div`
     font-weight: bold;
     font-size: 18px;
 `;
-const CardsContainer = styled.div`
+export const CardsContainer = styled.div`
     display: flex;
 `;
 
