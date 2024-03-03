@@ -1,5 +1,4 @@
-using Application.Interfaces;
-using Application.Services;
+using API.Startup;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,8 +7,11 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-// Add dependency injected services
-builder.Services.AddScoped<IPredictionService, PredictionService>();
+// Register services
+builder.Services.RegisterServices();
+
+// Register options
+builder.Services.RegisterOptions(builder.Configuration);
 
 var app = builder.Build();
 

@@ -211,3 +211,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# .NET Web API related files
+application.json
+application.*.json
