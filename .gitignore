@@ -212,6 +212,12 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
+# Secret stuff
+/frontend/src/components/testdata*.tsx
+/frontend/src/components/testdata.tsx
+/frontend/src/components/testdata2.tsx
+/frontend/src/components/testdata3.tsx
+
 # .NET Web API related files
 application.json
 application.*.json
