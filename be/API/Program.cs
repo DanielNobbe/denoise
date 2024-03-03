@@ -7,11 +7,16 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-// Register services
-builder.Services.RegisterServices();
+builder.Services.AddHttpContextAccessor();
 
 // Register options
 builder.Services.RegisterOptions(builder.Configuration);
+
+// Register clients
+builder.Services.RegisterHttpClients(builder);
+
+// Register services
+builder.Services.RegisterServices();
 
 var app = builder.Build();
 
