@@ -1,3 +1,5 @@
+using API.Errors;
+using Application.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers;
@@ -7,16 +9,29 @@ namespace API.Controllers;
 public class PredictionController : ControllerBase
 {
     private readonly ILogger<PredictionController> _logger;
+    private readonly IPredictionService _predictionService;
 
-    public PredictionController(ILogger<PredictionController> logger)
+    public PredictionController(
+        ILogger<PredictionController> logger,
+        IPredictionService predictionService
+    )
     {
         _logger = logger;
+        _predictionService = predictionService;
     }
 
     [HttpGet]
     public async Task<ActionResult<string>> Get()
     {
-        
-        return Ok("Successfully reached the endpoint");
+        var predictionResponse = await _predictionService.FetchPrediction();
+        if (predictionResponse.HasErrors)
+        {
+            return UnprocessableEntity(new ApiError()
+            {
+                Message = "Get on prediction failed",
+                Errors = predictionResponse.Errors
+            });
+        }
+        return Ok(predictionResponse.Result);
     }
 }
