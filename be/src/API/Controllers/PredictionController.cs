@@ -23,7 +23,8 @@ public class PredictionController : ControllerBase
     [HttpGet]
     public async Task<ActionResult<string>> Get()
     {
-        var predictionResponse = await _predictionService.FetchPrediction();
+        // var predictionResponse = await _predictionService.FetchPrediction();
+        var predictionResponse = await _predictionService.DummyService();
         if (predictionResponse.HasErrors)
         {
             return UnprocessableEntity(new ApiError()
