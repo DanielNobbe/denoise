@@ -5,4 +5,5 @@ namespace Application.Interfaces;
 public interface IPredictionService
 {
     Task<IServiceReturn<string>> FetchPrediction();
+    Task<IServiceReturn<string>> DummyService();
 }

@@ -61,6 +61,12 @@ public class PredictionService : IPredictionService
         return response.WithResult("Called prediction service successfully");
     }
 
+    public async Task<IServiceReturn<string>> DummyService()
+    {
+        var response = new ServiceReturn<string>();
+        return response.WithResult("Called dummy service successfully");
+    }
+
     private PredictionOutDto PreparePredictionRequest()
     {
         return new PredictionOutDto()
