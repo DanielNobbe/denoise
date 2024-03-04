@@ -4,4 +4,5 @@ public sealed record PredictionServiceOptions
 {
     public const string SectionName = "PredictionService";
     public string Url { get; set; } = null!;
+    public string BearerToken { get; set; } = null!;
 }

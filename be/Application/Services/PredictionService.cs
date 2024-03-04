@@ -1,3 +1,4 @@
+using System.Net.Http.Headers;
 using System.Text;
 using System.Text.Json;
 using System.Text.Json.Serialization;
@@ -43,6 +44,7 @@ public class PredictionService : IPredictionService
         var body = PreparePredictionRequest();
         var json = JsonSerializer.Serialize(body, _jsonSerializerOptions);
         var client = _clientFactory.CreateClient(Clients.DefaultName);
+        client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", _options.BearerToken);
         var endpoint = new Uri(_options.Url);
         var content = new StringContent(json, Encoding.UTF8, "application/json");
         var predictionResponse = await client.PostAsync(endpoint, content);
