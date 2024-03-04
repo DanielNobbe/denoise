@@ -1,18 +1,20 @@
 import React from 'react';
-
-interface User {
-    id: number;
-    name: string;
-}
+import * as https from "https";
 
 const UsersPage = async () => {
-    const res = await fetch("https://jsonplaceholder.typicode.com/users");
-    const users: User[] = await res.json();
+    process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
+    const res = await fetch(
+        "https://127.0.0.1:7071/prediction", {
+            method: "GET",
+            headers: { accept: "application/json" },
+        }
+    );
+    const str: string = await res.json();
     return (
         <>
             <h1>Users</h1>
             <ul>
-                {users.map(user => <li key={user.id}>{user.name}</li>)}
+                {str}
             </ul>
         </>
     );
