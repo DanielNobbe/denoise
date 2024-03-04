@@ -64,7 +64,7 @@ public class PredictionService : IPredictionService
     public async Task<IServiceReturn<string>> DummyService()
     {
         var response = new ServiceReturn<string>();
-        return response.WithResult("Called dummy service successfully");
+        return response.WithResult("Called dummy service successfully with random num of " + new Random().Next(0, 10));
     }
 
     private PredictionOutDto PreparePredictionRequest()
