@@ -219,7 +219,8 @@ next-env.d.ts
 /frontend/src/components/testdata3.tsx
 
 # .NET Web API related files
-application.json
-application.*.json
+appsettings.json
+appsettings.Development.json
+appsettings.*.json
 obj/
 bin/
