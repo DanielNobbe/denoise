@@ -1,0 +1,1 @@
+{"kind":"FETCH","data":{"headers":{"content-type":"application/json; charset=utf-8","date":"Mon, 04 Mar 2024 18:39:55 GMT","server":"Kestrel","transfer-encoding":"chunked"},"body":"IkNhbGxlZCBkdW1teSBzZXJ2aWNlIHN1Y2Nlc3NmdWxseSI=","status":200,"url":"https://127.0.0.1:7071/prediction"},"revalidate":31536000,"tags":[]}

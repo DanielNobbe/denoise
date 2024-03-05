@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="mediaqueries.css" />
+  </head>
+  <body>
+    <nav id="desktop-nav">
+      <div class="logo">Denoise</div>
+      <div>
+        <ul class="nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#examples">Examples</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+    <nav id="hamburger-nav">
+      <div class="logo">John Doe</div>
+      <div class="hamburger-menu">
+        <div class="hamburger-icon" onclick="toggleMenu()">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <div class="menu-links">
+          <li><a href="#about" onclick="toggleMenu()">About</a></li>
+          <li><a href="#services" onclick="toggleMenu()">Services</a></li>
+          <li><a href="#examples" onclick="toggleMenu()">Examples</a></li>
+          <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
+        </div>
+      </div>
+    </nav>
+    <section id="profile">
+      <div class="section__pic-container">
+        <img src="./assets/cover_image.png" alt="John Doe profile picture" />
+      </div>
+      <div class="section__text">
+        <p class="section__text__p1">Hello, we're</p>
+        <h1 class="title">Denoise</h1>
+        <p class="section__text__p2">Rediscover lost details and sharpen every pixel with our advanced image enhancement suite</p>
+        <p class="section__text__p1">Find our backend at &nbsp&nbsp https://denoise-be.fly.dev/</p>
+        <h1 class="title">&nbsp</h1>
+        <div class="btn-container">
+          <button
+            class="btn btn-color-2"
+          >
+            Action item
+          </button>
+          <button class="btn btn-color-1" onclick="location.href='./index.html#contact'">
+            Contact Info
+          </button>
+        </div>
+        <div id="socials-container">
+          <img
+            src="./assets/linkedin.png"
+            alt="Denoise LinkedIn"
+            class="icon"
+            onclick="location.href='https://linkedin.com/'"
+          />
+          <img
+            src="./assets/website_icon.png"
+            alt="Denoise Website"
+            class="icon"
+            onclick="location.href='https://denoise.netlify.app/'"
+          />
+        </div>
+      </div>
+    </section>
+    <section id="about">
+      <p class="section__text__p1">Get To Know More</p>
+      <h1 class="title">About Us</h1>
+      <div class="section-container">
+        <div class="section__pic-container">
+          <img
+            src="./assets/computer_vision.png"
+            alt="Profile picture"
+            class="about-pic"
+          />
+        </div>
+        <div class="about-details-container">
+          <div class="about-containers">
+            <div class="details-container">
+              <img
+                src="./assets/experience.png"
+                alt="Experience icon"
+                class="icon"
+              />
+              <h3>Experience</h3>
+              <p>x light-years <br />training</p>
+            </div>
+            <div class="details-container">
+              <img
+                src="./assets/education.png"
+                alt="Education icon"
+                class="icon"
+              />
+              <h3>Education</h3>
+              <p>0 human-years<br />testing</p>
+            </div>
+          </div>
+          <div class="text-container">
+            <p>
+                At Denoise, we specialize in breathing new life into your images. Our advanced image enhancement suite utilizes cutting-edge AI technology to rediscover lost details, sharpen every pixel, and elevate your visuals to unprecedented levels of clarity and vibrancy. Whether it's removing noise, correcting colors, or refining textures, Denoise is dedicated to transforming your images into true masterpieces.
+            </p>
+          </div>
+        </div>
+      </div>
+      <img
+        src="./assets/arrow.png"
+        alt="Arrow icon"
+        class="icon arrow"
+        onclick="location.href='./index.html#services'"
+      />
+    </section>
+    <section id="services">
+      <p class="section__text__p1">Explore our</p>
+      <h1 class="title">Services</h1>
+      <div class="services-details-container">
+        <div class="about-containers">
+          <div class="details-container">
+            <h2 class="services-sub-title">De-noise</h2>
+            <div class="article-container">
+              <article>
+                <img
+                  src="./assets/checkmark.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                    <h3>Technique 1</h3>
+                    <p>One-liner</p>
+                </div>
+              </article>
+              <article>
+                <img
+                  src="./assets/checkmark.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                    <h3>Technique 2</h3>
+                    <p>One-liner</p>
+                </div>
+              </article>
+              <article>
+                <img
+                  src="./assets/checkmark.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                    <h3>Technique 3</h3>
+                    <p>One-liner</p>
+                </div>
+              </article>
+              <article>
+                <img
+                  src="./assets/checkmark.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                    <h3>Technique 4</h3>
+                    <p>One-liner</p>
+                </div>
+              </article>
+              <article>
+                <img
+                  src="./assets/checkmark.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                    <h3>Technique 5</h3>
+                    <p>One-liner</p>
+                </div>
+              </article>
+              <article>
+                <img
+                  src="./assets/checkmark.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                    <h3>Technique 6</h3>
+                    <p>One-liner</p>
+                </div>
+              </article>
+            </div>
+              <div class="text-container">
+                  <p>
+                      De-noising is a digital image processing technique aimed at reducing or eliminating noise, such as graininess or pixelation, from images, resulting in clearer and smoother visuals by enhancing the signal-to-noise ratio.
+                  </p>
+              </div>
+          </div>
+          <div class="details-container">
+            <h2 class="services-sub-title">De-blur</h2>
+            <div class="article-container">
+              <article>
+                <img
+                  src="./assets/checkmark.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                  <h3>Technique 1</h3>
+                  <p>One-liner</p>
+                </div>
+              </article>
+              <article>
+                <img
+                  src="./assets/checkmark.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                    <h3>Technique 2</h3>
+                    <p>One-liner</p>
+                </div>
+              </article>
+              <article>
+                <img
+                  src="./assets/checkmark.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                    <h3>Technique 3</h3>
+                    <p>One-liner</p>
+                </div>
+              </article>
+              <article>
+                <img
+                  src="./assets/checkmark.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                    <h3>Technique 4</h3>
+                    <p>One-liner</p>
+                </div>
+              </article>
+            </div>
+              <div class="text-container">
+                  <p>
+                      De-blurring is an image enhancement process designed to restore sharpness and clarity to blurred or out-of-focus images, utilizing algorithms to reverse the effects of motion blur or lens imperfections, thereby improving overall image quality and detail.
+                  </p>
+              </div>
+          </div>
+          <div class="details-container">
+            <h2 class="services-sub-title">Color correction</h2>
+            <div class="article-container">
+              <article>
+                <img
+                  src="./assets/checkmark.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                    <h3>Technique 1</h3>
+                    <p>One-liner</p>
+                </div>
+              </article>
+              <article>
+                <img
+                  src="./assets/checkmark.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                    <h3>Technique 2</h3>
+                    <p>One-liner</p>
+                </div>
+              </article>
+              <article>
+                <img
+                  src="./assets/checkmark.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                    <h3>Technique 3</h3>
+                    <p>One-liner</p>
+                </div>
+              </article>
+              <article>
+                <img
+                  src="./assets/checkmark.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                    <h3>Technique 4</h3>
+                    <p>One-liner</p>
+                </div>
+              </article>
+            </div>
+              <div class="text-container">
+                  <p>
+                      Color correction is the process of adjusting and balancing colors in an image to ensure accurate and consistent representation, correcting any color casts, improving overall color fidelity, and enhancing the visual appeal of the image.
+                  </p>
+              </div>
+          </div>
+        </div>
+
+          <div class="details-container">
+              <h2 class="services-sub-title">Methods combined</h2>
+              <div class="article-container">
+                  <article>
+                      <img
+                              src="./assets/checkmark.png"
+                              alt="Experience icon"
+                              class="icon"
+                      />
+                      <div>
+                          <h3>Technique 1</h3>
+                          <p>One-liner</p>
+                      </div>
+                  </article>
+                  <article>
+                      <img
+                              src="./assets/checkmark.png"
+                              alt="Experience icon"
+                              class="icon"
+                      />
+                      <div>
+                          <h3>Technique 2</h3>
+                          <p>One-liner</p>
+                      </div>
+                  </article>
+                  <article>
+                      <img
+                              src="./assets/checkmark.png"
+                              alt="Experience icon"
+                              class="icon"
+                      />
+                      <div>
+                          <h3>Technique 3</h3>
+                          <p>One-liner</p>
+                      </div>
+                  </article>
+              </div>
+              <div class="text-container">
+                  <p>
+                      Combining de-noising, de-blurring, and color correction technologies, our image enhancement solution delivers unparalleled results by first eliminating noise and blur, then refining color accuracy and balance. This holistic approach ensures that images are not only clearer and sharper but also exhibit vibrant, true-to-life colors, resulting in stunning visual transformations.
+                  </p>
+              </div>
+          </div>
+      </div>
+      <img
+        src="./assets/arrow.png"
+        alt="Arrow icon"
+        class="icon arrow"
+        onclick="location.href='./index.html#examples'"
+      />
+    </section>
+    <section id="examples">
+      <p class="section__text__p1">Check out some of our</p>
+      <h1 class="title">Examples</h1>
+      <div class="services-details-container">
+        <div class="about-containers">
+          <div class="details-container color-container">
+            <div class="article-container">
+              <img
+                src="./assets/low-light-image.png"
+                alt="low-light-image"
+                class="example-img"
+              />
+            </div>
+            <h2 class="services-sub-title project-title">Low light</h2>
+            <div class="btn-container">
+              <button
+                class="btn btn-color-2 project-btn"
+              >
+                Pricing
+              </button>
+              <button
+                class="btn btn-color-2 project-btn"
+                onclick="location.href='https://en.wikipedia.org/wiki/Noise_reduction/'"
+              >
+                Try it out
+              </button>
+            </div>
+          </div>
+          <div class="details-container color-container">
+            <div class="article-container">
+              <img
+                src="./assets/fast_motion.png"
+                alt="Project 2"
+                class="example-img"
+              />
+            </div>
+            <h2 class="services-sub-title project-title">Fast motion</h2>
+            <div class="btn-container">
+              <button
+                class="btn btn-color-2 project-btn"
+              >
+                Pricing
+              </button>
+              <button
+                class="btn btn-color-2 project-btn"
+                onclick="location.href='https://en.wikipedia.org/wiki/Deblurring/'"
+              >
+                  Try it out
+              </button>
+            </div>
+          </div>
+          <div class="details-container color-container">
+            <div class="article-container">
+              <img
+                src="./assets/scanned_image.png"
+                alt="Project 3"
+                class="example-img"
+              />
+            </div>
+            <h2 class="services-sub-title project-title">Scanned images</h2>
+            <div class="btn-container">
+              <button
+                class="btn btn-color-2 project-btn"
+              >
+                Pricing
+              </button>
+              <button
+                class="btn btn-color-2 project-btn"
+                onclick="location.href='https://en.wikipedia.org/wiki/Color_correction/'"
+              >
+                Try it out
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <img
+        src="./assets/arrow.png"
+        alt="Arrow icon"
+        class="icon arrow"
+        onclick="location.href='./index.html#contact'"
+      />
+    </section>
+    <section id="contact">
+      <p class="section__text__p1">Get in Touch</p>
+      <h1 class="title">Contact Us</h1>
+      <div class="contact-info-upper-container">
+        <div class="contact-info-container">
+          <img
+            src="./assets/email.png"
+            alt="Email icon"
+            class="icon contact-icon email-icon"
+          />
+          <p><a href="mailto:support@denoise.com">support@denoise.com</a></p>
+        </div>
+        <div class="contact-info-container">
+          <img
+            src="./assets/linkedin.png"
+            alt="LinkedIn icon"
+            class="icon contact-icon"
+          />
+          <p><a href="https://www.linkedin.com">LinkedIn</a></p>
+        </div>
+      </div>
+    </section>
+    <footer>
+      <nav>
+        <div class="nav-links-container">
+          <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#examples">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+      </nav>
+      <p>Rediscover lost details and sharpen every pixel with our advanced image enhancement suite</p>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>
