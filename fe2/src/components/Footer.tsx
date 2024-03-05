@@ -52,7 +52,6 @@ const Paragraph = styled.p`
   text-align: center;
 `;
 
-
 export const Footer = () => {
     return (
         <FooterContainer>
