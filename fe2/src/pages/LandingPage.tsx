@@ -2,6 +2,7 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 
 const ProfileSection = styled.section`
+  position: relative;
   display: flex;
   justify-content: center;
   gap: 5rem;
@@ -115,6 +116,14 @@ const Icon = styled.img`
   height: 2rem;
 `;
 
+const Arrow = styled.img`
+  height: 2rem;
+  position: absolute;
+  right: -5rem;
+  bottom: 2.5rem;
+  cursor: pointer;
+`;
+
 export const LandingPage = () => {
     return (
         <ProfileSection>
@@ -148,6 +157,7 @@ export const LandingPage = () => {
                     />
                 </SocialsContainer>
             </TextContainer>
+            <Arrow src="/arrow.png" alt="Arrow icon" onClick={() => window.location.href = './index.html#services'} />
         </ProfileSection>
     );
 };
