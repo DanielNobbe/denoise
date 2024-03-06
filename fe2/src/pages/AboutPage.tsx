@@ -100,7 +100,7 @@ const Arrow = styled.img`
 
 export const AboutPage = () => {
     return (
-        <AboutSection>
+        <AboutSection id="about">
             <SectionText>Get To Know More</SectionText>
             <Title>About Us</Title>
             <SectionContainer>

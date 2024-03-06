@@ -46,7 +46,7 @@ const ContactIcon = styled.img`
 
 export const ContactPage = () => {
     return (
-        <Section>
+        <Section id="contact">
             <SectionText>Get in Touch</SectionText>
             <Title>Contact Us</Title>
             <ContactInfoUpperContainer>

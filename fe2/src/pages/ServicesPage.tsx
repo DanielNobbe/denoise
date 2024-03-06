@@ -99,7 +99,7 @@ const DetailsContainer = styled.div`
 
 export const ServicesPage = () => {
     return (
-        <ServicesSection>
+        <ServicesSection id="services">
             <SectionText>Explore our</SectionText>
             <Title>Services</Title>
             <ServicesDetailsContainer>

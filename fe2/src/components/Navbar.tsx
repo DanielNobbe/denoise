@@ -13,7 +13,9 @@ const DesktopNav = styled.nav`
 `;
 
 const HamburgerNav = styled.nav`
+  position: relative;
   display: none;
+  z-index: 1;
   @media screen and (max-width: 1200px) {
     display: flex;
     justify-content: space-around;
@@ -70,7 +72,6 @@ const MenuLinks = styled.ul`
   position: absolute;
   top: 100%;
   right: 0;
-  background-color: white;
   width: fit-content;
   max-height: 0;
   overflow: hidden;

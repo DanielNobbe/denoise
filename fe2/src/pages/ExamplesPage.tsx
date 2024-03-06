@@ -133,7 +133,7 @@ const DetailsContainerWithColor = styled.div`
 
 export const ExamplesPage = () => {
     return (
-        <ExamplesSection>
+        <ExamplesSection id="examples">
             <SectionText>Check out some of our</SectionText>
             <Title>Examples</Title>
             <ServicesDetailsContainer>
@@ -200,7 +200,7 @@ export const ExamplesPage = () => {
                     </DetailsContainerWithColor>
                 </AboutContainer>
             </ServicesDetailsContainer>
-            <Arrow src="/arrow.png" alt="Arrow icon" onClick={() => window.location.href = './index.html#contact'} />
+            <Arrow src="/arrow.png" alt="Arrow icon" onClick={() => window.location.href = './index.html#about'} />
         </ExamplesSection>
     );
 };
