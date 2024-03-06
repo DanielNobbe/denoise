@@ -4,7 +4,7 @@ import styled from 'styled-components';
 const ServicesSection = styled.section`
   position: relative;
   @media screen and (max-width: 1200px) {
-    //margin-top: 2rem;
+    margin-top: 2rem;
   }
 `;
 

@@ -1,8 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 
-// Styled components
-
 const AboutSection = styled.section`
   position: relative;
 `;
@@ -17,6 +15,7 @@ const Title = styled.h1`
 `;
 
 const SectionContainer = styled.div`
+  justify-content: center;
   display: flex;
   gap: 4rem;
   height: 80%;
@@ -98,8 +97,6 @@ const Arrow = styled.img`
   bottom: 2.5rem;
   cursor: pointer;
 `;
-
-// Component
 
 export const AboutPage = () => {
     return (

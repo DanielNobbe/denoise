@@ -5,6 +5,7 @@ import {Footer} from "./components/Footer";
 import {ContactPage} from "./pages/ContactPage";
 import {AboutPage} from "./pages/AboutPage";
 import {ServicesPage} from "./pages/ServicesPage";
+import {ExamplesPage} from "./pages/ExamplesPage";
 
 function App() {
     return (
@@ -12,6 +13,7 @@ function App() {
             <Navbar />
             <LandingPage />
             <ServicesPage />
+            <ExamplesPage />
             <AboutPage />
             <ContactPage />
             <Footer />
