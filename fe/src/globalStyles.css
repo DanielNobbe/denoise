@@ -44,10 +44,10 @@ nav {
 
 section {
     padding-top: 4vh;
-    height: 96vh;
+    min-height: 100vh;
     margin: 0 10rem;
     box-sizing: border-box;
-    min-height: fit-content;
+    /*min-height: fit-content;*/
 }
 
 article {

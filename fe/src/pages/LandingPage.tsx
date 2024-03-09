@@ -7,7 +7,7 @@ const ProfileSection = styled.section`
   display: flex;
   justify-content: center;
   gap: 5rem;
-  height: 80vh;
+  min-height: 80vh;
   @media screen and (max-width: 1400px) {
     height: 83vh;
     margin-bottom: 6rem;
@@ -55,15 +55,6 @@ const TextParagraph = styled.p`
     font-size: 1.75rem;
     margin-bottom: 1rem;
   };
-`;
-
-const TextParagraph2 = styled.p`
-  text-align: center;
-`;
-
-const TextParagraph3 = styled.p`
-  font-size: 1.75rem;
-  margin-bottom: 1rem;
 `;
 
 const BtnContainer = styled.div`
@@ -130,19 +121,19 @@ export const LandingPage = () => {
         <ProfileSection>
             <PicContainer>
                 <ImgComparisonSlider hover={true} style={{}}>
-                    <img slot="first" src="/after.png" style={{height: "350px", width: "300px"}} />
-                    <img slot="second" src="/before.png" style={{height: "350px", width: "300px"}} />
+                    <img slot="first" src="/before_noise_img_round.png" style={{height: "350px", width: "300px"}} />
+                    <img slot="second" src="/after_noise_img_round.png" style={{height: "350px", width: "300px"}} />
                 </ImgComparisonSlider>
             </PicContainer>
             <TextContainer>
                 <TextParagraph className="section__text__p1">Hello, we're</TextParagraph>
                 <Title>Denoise</Title>
                 <TextParagraph className="section__text__p2">Rediscover lost details and sharpen every pixel with our advanced image enhancement suite</TextParagraph>
-                <TextParagraph className="section__text__p1">Find our backend at &nbsp;&nbsp; https://denoise-be.fly.dev/</TextParagraph>
+                <TextParagraph className="section__text__p1">Based in Zurich and Copenhagen</TextParagraph>
                 <Title>&nbsp;</Title>
                 <BtnContainer>
-                    <Button className="btn-color-2">
-                        Action item
+                    <Button className="btn-color-2" onClick={() => window.location.href = 'https://denoise-be.fly.dev/prediction'} >
+                        Backend
                     </Button>
                     <Button className="btn-color-1" onClick={() => window.location.href = './index.html#contact'}>
                         Contact Info

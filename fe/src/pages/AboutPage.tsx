@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const AboutSection = styled.section`
+  margin-top: 5rem;
   position: relative;
 `;
 

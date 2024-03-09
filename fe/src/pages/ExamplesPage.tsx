@@ -1,13 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
+import {ImgComparisonSlider} from "@img-comparison-slider/react";
 
 const ExamplesSection = styled.section`
   position: relative;
-  padding-top: 4vh;
-  height: 96vh;
-  margin: 0 10rem;
+  margin-top: 5rem;
   box-sizing: border-box;
-  min-height: fit-content;
   @media screen and (max-width: 1200px) {
     height: fit-content;
   }
@@ -36,61 +34,11 @@ const ArticleContainer = styled.div`
 const ServicesSubTitleWithProjectTitle = styled.h2`
   font-weight: 600;
   font-size: 1.75rem;
-  margin: 1rem;
+  margin-top: 5px;
   color: black;
   @media screen and (max-width: 600px) {
     font-size: 1.25rem;
   }
-`;
-
-const BtnContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  @media screen and (max-width: 600px) {
-    flex-wrap: wrap;
-  }
-`;
-
-const Button = styled.button`
-  font-weight: 600;
-  transition: all 300ms ease;
-  padding: 1rem;
-  width: 8rem;
-  border-radius: 2rem;
-  &.btn-color-1,
-  &.btn-color-2 {
-    border: rgb(53, 53, 53) 0.1rem solid;
-  }
-  &.btn-color-1:hover,
-  &.btn-color-2:hover {
-    cursor: pointer;
-  }
-  &.btn-color-1,
-  &.btn-color-2:hover {
-    background: rgb(53, 53, 53);
-    color: white;
-  }
-  &.btn-color-1:hover {
-    background: rgb(0, 0, 0);
-  }
-  &.btn-color-2 {
-    background: none;
-  }
-  &.btn-color-2:hover {
-    border: rgb(255, 255, 255) 0.1rem solid;
-  }
-`;
-
-const ExampleImg = styled.img`
-  border-radius: 2rem;
-  width: 90%;
-  height: 500px;
-`;
-
-const ProjectTitle = styled.h2`
-  margin: 1rem;
-  color: black;
 `;
 
 const SectionText = styled.p`
@@ -100,7 +48,6 @@ const SectionText = styled.p`
 const AboutContainer = styled.div`
   display: flex;
   gap: 2rem;
-  margin-bottom: 2rem;
   margin-top: 2rem;
   @media screen and (max-width: 1400px) {
     flex-wrap: wrap;
@@ -128,7 +75,6 @@ const DetailsContainerWithColor = styled.div`
   border: 0.1rem solid rgb(163, 163, 163);
   text-align: center;
   background: rgb(250, 250, 250);
-
 `;
 
 export const ExamplesPage = () => {
@@ -140,63 +86,59 @@ export const ExamplesPage = () => {
                 <AboutContainer>
                     <DetailsContainerWithColor>
                         <ArticleContainer>
-                            <ExampleImg
-                                src="/low-light-image.png"
-                                alt="low-light-image"
-                            />
+                            <ImgComparisonSlider hover={true} style={{}}>
+                                <img slot="first" src="/before_noise_img_round.png" style={{height: "250px", width: "250px"}} />
+                                <img slot="second" src="/after_noise_img_round.png" style={{height: "250px", width: "250px"}} />
+                            </ImgComparisonSlider>
                         </ArticleContainer>
                         <ServicesSubTitleWithProjectTitle>Low light</ServicesSubTitleWithProjectTitle>
-                        <BtnContainer>
-                            <Button className="btn-color-2">
-                                Action item
-                            </Button>
-                            <Button
-                                className="btn-color-2"
-                                onClick={() => { window.location.href = 'https://en.wikipedia.org/wiki/Noise_reduction/'; }}
-                            >
-                                Try it out
-                            </Button>
-                        </BtnContainer>
                     </DetailsContainerWithColor>
                     <DetailsContainerWithColor>
                         <ArticleContainer>
-                            <ExampleImg
-                                src="/fast_motion.png"
-                                alt="fast-motion-image"
-                            />
+                            <ImgComparisonSlider hover={true} style={{}}>
+                                <img slot="first" src="/before_noise_img_round.png" style={{height: "250px", width: "250px"}} />
+                                <img slot="second" src="/after_noise_img_round.png" style={{height: "250px", width: "250px"}} />
+                            </ImgComparisonSlider>
                         </ArticleContainer>
                         <ServicesSubTitleWithProjectTitle>Fast motion</ServicesSubTitleWithProjectTitle>
-                        <BtnContainer>
-                            <Button className="btn-color-2">
-                                Action item
-                            </Button>
-                            <Button
-                                className="btn-color-2"
-                                onClick={() => { window.location.href = 'https://en.wikipedia.org/wiki/Deblurring/'; }}
-                            >
-                                Try it out
-                            </Button>
-                        </BtnContainer>
                     </DetailsContainerWithColor>
                     <DetailsContainerWithColor>
                         <ArticleContainer>
-                            <ExampleImg
-                                src="/scanned_image.png"
-                                alt="scanned-image"
-                            />
+                            <ImgComparisonSlider hover={true} style={{}}>
+                                <img slot="first" src="/before_noise_img_round.png" style={{height: "250px", width: "250px"}} />
+                                <img slot="second" src="/after_noise_img_round.png" style={{height: "250px", width: "250px"}} />
+                            </ImgComparisonSlider>
                         </ArticleContainer>
                         <ServicesSubTitleWithProjectTitle>Scanned images</ServicesSubTitleWithProjectTitle>
-                        <BtnContainer>
-                            <Button className="btn-color-2">
-                                Action item
-                            </Button>
-                            <Button
-                                className="btn-color-2"
-                                onClick={() => { window.location.href = 'https://en.wikipedia.org/wiki/Noise_reduction/'; }}
-                            >
-                                Try it out
-                            </Button>
-                        </BtnContainer>
+                    </DetailsContainerWithColor>
+                </AboutContainer>
+                <AboutContainer>
+                    <DetailsContainerWithColor>
+                        <ArticleContainer>
+                            <ImgComparisonSlider hover={true} style={{}}>
+                                <img slot="first" src="/before_noise_img_round.png" style={{height: "250px", width: "250px"}} />
+                                <img slot="second" src="/after_noise_img_round.png" style={{height: "250px", width: "250px"}} />
+                            </ImgComparisonSlider>
+                        </ArticleContainer>
+                        <ServicesSubTitleWithProjectTitle>Low light</ServicesSubTitleWithProjectTitle>
+                    </DetailsContainerWithColor>
+                    <DetailsContainerWithColor>
+                        <ArticleContainer>
+                            <ImgComparisonSlider hover={true} style={{}}>
+                                <img slot="first" src="/before_noise_img_round.png" style={{height: "250px", width: "250px"}} />
+                                <img slot="second" src="/after_noise_img_round.png" style={{height: "250px", width: "250px"}} />
+                            </ImgComparisonSlider>
+                        </ArticleContainer>
+                        <ServicesSubTitleWithProjectTitle>Fast motion</ServicesSubTitleWithProjectTitle>
+                    </DetailsContainerWithColor>
+                    <DetailsContainerWithColor>
+                        <ArticleContainer>
+                            <ImgComparisonSlider hover={true} style={{}}>
+                                <img slot="first" src="/before_noise_img_round.png" style={{height: "250px", width: "250px"}} />
+                                <img slot="second" src="/after_noise_img_round.png" style={{height: "250px", width: "250px"}} />
+                            </ImgComparisonSlider>
+                        </ArticleContainer>
+                        <ServicesSubTitleWithProjectTitle>Scanned images</ServicesSubTitleWithProjectTitle>
                     </DetailsContainerWithColor>
                 </AboutContainer>
             </ServicesDetailsContainer>

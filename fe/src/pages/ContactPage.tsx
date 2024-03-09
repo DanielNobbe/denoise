@@ -5,7 +5,6 @@ const Section = styled.section`
   display: flex;
   justify-content: center;
   flex-direction: column;
-  height: 70vh;
 `;
 
 const SectionText = styled.p`

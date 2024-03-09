@@ -2,6 +2,39 @@ import React from 'react';
 import styled from 'styled-components';
 import {ImgComparisonSlider} from "@img-comparison-slider/react";
 
+const Button = styled.button`
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-weight: 600;
+  transition: all 300ms ease;
+  padding: 0.25rem;
+  width: 80px;
+  border-radius: 2rem;
+  &.btn-color-1,
+  &.btn-color-2 {
+    border: rgb(53, 53, 53) 0.1rem solid;
+  }
+  &.btn-color-1:hover,
+  &.btn-color-2:hover {
+    cursor: pointer;
+  }
+  &.btn-color-1,
+  &.btn-color-2:hover {
+    background: rgb(53, 53, 53);
+    color: white;
+  }
+  &.btn-color-1:hover {
+    background: rgb(0, 0, 0);
+  }
+  &.btn-color-2 {
+    background: none;
+  }
+  &.btn-color-2:hover {
+    border: rgb(255, 255, 255) 0.1rem solid;
+  }
+`;
+
 const ServicesSection = styled.section`
   position: relative;
   @media screen and (max-width: 1200px) {
@@ -17,7 +50,7 @@ const Title = styled.h1`
 const ServicesSubTitle = styled.h2`
   color: rgb(85, 85, 85);
   font-weight: 600;
-  font-size: 1.75rem;
+  font-size: 1.5rem;
   margin-bottom: 0.5rem;
   @media screen and (max-width: 600px) {
     font-size: 1.25rem;
@@ -79,12 +112,12 @@ const AboutContainer = styled.div`
 `;
 
 const DetailsContainer = styled.div`
+  position: relative;
   padding: 1.5rem;
   flex: 1;
   background: white;
   border-radius: 2rem;
-  border: rgb(53, 53, 53) 0.1rem solid;
-  border-color: rgb(163, 163, 163);
+  border: rgb(163, 163, 163) 0.1rem solid;
   text-align: center;
   @media screen and (max-width: 1400px) {
     flex-wrap: wrap;
@@ -135,6 +168,12 @@ export const ServicesPage = () => {
                                 De-noising is a digital image processing technique aimed at reducing or eliminating noise, such as graininess or pixelation, from images, resulting in clearer and smoother visuals by enhancing the signal-to-noise ratio.
                             </p>
                         </TextContainer>
+                        <Button
+                            className="btn-color-2"
+                            onClick={() => { window.location.href = 'https://en.wikipedia.org/wiki/Noise_reduction/'; }}
+                        >
+                            Try it out
+                        </Button>
                     </DetailsContainer>
                     <DetailsContainer>
                         <ServicesSubTitle>De-blur</ServicesSubTitle>
@@ -173,6 +212,12 @@ export const ServicesPage = () => {
                                 De-blurring is an image enhancement process designed to restore sharpness and clarity to blurred or out-of-focus images, utilizing algorithms to reverse the effects of motion blur or lens imperfections, thereby improving overall image quality and detail.
                             </p>
                         </TextContainer>
+                        <Button
+                            className="btn-color-2"
+                            onClick={() => { window.location.href = 'https://en.wikipedia.org/wiki/Noise_reduction/'; }}
+                        >
+                            Try it out
+                        </Button>
                     </DetailsContainer>
                     <DetailsContainer>
                         <ServicesSubTitle>Color correction</ServicesSubTitle>
@@ -211,6 +256,12 @@ export const ServicesPage = () => {
                                 Color correction is the process of adjusting and balancing colors in an image to ensure accurate and consistent representation, correcting any color casts, improving overall color fidelity, and enhancing the visual appeal of the image.
                             </p>
                         </TextContainer>
+                        <Button
+                            className="btn-color-2"
+                            onClick={() => { window.location.href = 'https://en.wikipedia.org/wiki/Noise_reduction/'; }}
+                        >
+                            Try it out
+                        </Button>
                     </DetailsContainer>
                 </AboutContainer>
                 <DetailsContainer>
@@ -244,6 +295,12 @@ export const ServicesPage = () => {
                             Combining de-noising, de-blurring, and color correction technologies, our image enhancement solution delivers unparalleled results by first eliminating noise and blur, then refining color accuracy and balance. This holistic approach ensures that images are not only clearer and sharper but also exhibit vibrant, true-to-life colors, resulting in stunning visual transformations.
                         </p>
                     </TextContainer>
+                    <Button
+                        className="btn-color-2"
+                        onClick={() => { window.location.href = 'https://en.wikipedia.org/wiki/Noise_reduction/'; }}
+                    >
+                        Try it out
+                    </Button>
                 </DetailsContainer>
             </ServicesDetailsContainer>
             <Arrow src="/arrow.png" alt="Arrow icon" onClick={() => window.location.href = './index.html#examples'} />
