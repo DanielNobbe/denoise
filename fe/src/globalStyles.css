@@ -52,9 +52,8 @@ section {
 
 article {
     display: flex;
-    width: 8rem;
     justify-content: space-around;
-    gap: 0.5rem;
+    gap: 3px;
 }
 
 article .icon {

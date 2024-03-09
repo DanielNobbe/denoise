@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import {ImgComparisonSlider} from "@img-comparison-slider/react";
 
 const ServicesSection = styled.section`
   position: relative;
@@ -17,7 +18,7 @@ const ServicesSubTitle = styled.h2`
   color: rgb(85, 85, 85);
   font-weight: 600;
   font-size: 1.75rem;
-  margin-bottom: 2rem;
+  margin-bottom: 0.5rem;
   @media screen and (max-width: 600px) {
     font-size: 1.25rem;
   }
@@ -37,13 +38,12 @@ const ArticleContainer = styled.div`
   text-align: initial;
   flex-wrap: wrap;
   flex-direction: row;
-  gap: 1rem;
+  gap: 0.5rem;
   justify-content: space-around;
 `;
 
 const Icon = styled.img`
-  cursor: default;
-  height: 2rem;
+  height: 1.4rem;
 `;
 
 const TextContainer = styled.div`
@@ -106,98 +106,141 @@ export const ServicesPage = () => {
                 <AboutContainer>
                     <DetailsContainer>
                         <ServicesSubTitle>De-noise</ServicesSubTitle>
+                        <ImgComparisonSlider hover={true} style={{}}>
+                            <img slot="first" src="/before_noise_img_round.png" style={{height: "250px", width: "250px"}} />
+                            <img slot="second" src="/after_noise_img_round.png" style={{height: "250px", width: "250px"}} />
+                        </ImgComparisonSlider>
                         <ArticleContainer>
                             <article>
                                 <Icon src="/checkmark.png" alt="Experience icon" />
                                 <div>
-                                    <h3>Tech 1</h3>
-                                    <p>One-liner</p>
+                                    <h4>Shot noise</h4>
                                 </div>
                             </article>
                             <article>
                                 <Icon src="/checkmark.png" alt="Experience icon" />
                                 <div>
-                                    <h3>Tech 2</h3>
-                                    <p>One-liner</p>
+                                    <h4>S&P noise</h4>
+                                </div>
+                            </article>
+                            <article>
+                                <Icon src="/checkmark.png" alt="Experience icon" />
+                                <div>
+                                    <h4>Gaussian noise</h4>
                                 </div>
                             </article>
                         </ArticleContainer>
                         <TextContainer>
-                            <p>
+                            <p style={{fontSize: "14px"}}>
                                 De-noising is a digital image processing technique aimed at reducing or eliminating noise, such as graininess or pixelation, from images, resulting in clearer and smoother visuals by enhancing the signal-to-noise ratio.
                             </p>
                         </TextContainer>
                     </DetailsContainer>
                     <DetailsContainer>
                         <ServicesSubTitle>De-blur</ServicesSubTitle>
+                        <ImgComparisonSlider hover={true} style={{}}>
+                            <img slot="first" src="/before_blur_img_round.png" style={{height: "250px", width: "250px"}} />
+                            <img slot="second" src="/after_blur_img_round.png" style={{height: "250px", width: "250px"}} />
+                        </ImgComparisonSlider>
                         <ArticleContainer>
                             <article>
                                 <Icon src="/checkmark.png" alt="Experience icon" />
                                 <div>
-                                    <h3>Tech 1</h3>
-                                    <p>One-liner</p>
+                                    <h4>Directional blur</h4>
                                 </div>
                             </article>
                             <article>
                                 <Icon src="/checkmark.png" alt="Experience icon" />
                                 <div>
-                                    <h3>Tech 2</h3>
-                                    <p>One-liner</p>
+                                    <h4>Radical blur</h4>
+                                </div>
+                            </article>
+                            <article>
+                                <Icon src="/checkmark.png" alt="Experience icon" />
+                                <div>
+                                    <h4>Tilt-shift</h4>
+                                </div>
+                            </article>
+                            <article>
+                                <Icon src="/checkmark.png" alt="Experience icon" />
+                                <div>
+                                    <h4>Motion blur</h4>
                                 </div>
                             </article>
                         </ArticleContainer>
                         <TextContainer>
-                            <p>
+                            <p style={{fontSize: "14px"}}>
                                 De-blurring is an image enhancement process designed to restore sharpness and clarity to blurred or out-of-focus images, utilizing algorithms to reverse the effects of motion blur or lens imperfections, thereby improving overall image quality and detail.
                             </p>
                         </TextContainer>
                     </DetailsContainer>
                     <DetailsContainer>
                         <ServicesSubTitle>Color correction</ServicesSubTitle>
+                        <ImgComparisonSlider hover={true} style={{}}>
+                            <img slot="first" src="/before_color_img_round.png" style={{height: "250px", width: "250px"}} />
+                            <img slot="second" src="/after_color_img_round.png" style={{height: "250px", width: "250px"}} />
+                        </ImgComparisonSlider>
                         <ArticleContainer>
                             <article>
                                 <Icon src="/checkmark.png" alt="Experience icon" />
                                 <div>
-                                    <h3>Tech 1</h3>
-                                    <p>One-liner</p>
+                                    <h4>Bleach bypass</h4>
                                 </div>
                             </article>
                             <article>
                                 <Icon src="/checkmark.png" alt="Experience icon" />
                                 <div>
-                                    <h3>Tech 2</h3>
-                                    <p>One-liner</p>
+                                    <h4>Color grading</h4>
+                                </div>
+                            </article>
+                            <article>
+                                <Icon src="/checkmark.png" alt="Experience icon" />
+                                <div>
+                                    <h4>Saturation</h4>
+                                </div>
+                            </article>
+                            <article>
+                                <Icon src="/checkmark.png" alt="Experience icon" />
+                                <div>
+                                    <h4>Gamma</h4>
                                 </div>
                             </article>
                         </ArticleContainer>
                         <TextContainer>
-                            <p>
+                            <p style={{fontSize: "14px"}}>
                                 Color correction is the process of adjusting and balancing colors in an image to ensure accurate and consistent representation, correcting any color casts, improving overall color fidelity, and enhancing the visual appeal of the image.
                             </p>
                         </TextContainer>
                     </DetailsContainer>
                 </AboutContainer>
-
                 <DetailsContainer>
                     <ServicesSubTitle>Methods combined</ServicesSubTitle>
+                    <ImgComparisonSlider hover={true} style={{}}>
+                        <img slot="first" src="/before_combined_img_round.png" style={{height: "250px", width: "1000px"}} />
+                        <img slot="second" src="/after_combined_img_round.png" style={{height: "250px", width: "1000px"}} />
+                    </ImgComparisonSlider>
                     <ArticleContainer>
                         <article>
                             <Icon src="/checkmark.png" alt="Experience icon" />
                             <div>
-                                <h3>Tech 1</h3>
-                                <p>One-liner</p>
+                                <h4>De-noise</h4>
                             </div>
                         </article>
                         <article>
                             <Icon src="/checkmark.png" alt="Experience icon" />
                             <div>
-                                <h3>Tech 2</h3>
-                                <p>One-liner</p>
+                                <h4>De-blur</h4>
+                            </div>
+                        </article>
+                        <article>
+                            <Icon src="/checkmark.png" alt="Experience icon" />
+                            <div>
+                                <h4>Color correction</h4>
                             </div>
                         </article>
                     </ArticleContainer>
                     <TextContainer>
-                        <p>
+                        <p style={{fontSize: "14px"}}>
                             Combining de-noising, de-blurring, and color correction technologies, our image enhancement solution delivers unparalleled results by first eliminating noise and blur, then refining color accuracy and balance. This holistic approach ensures that images are not only clearer and sharper but also exhibit vibrant, true-to-life colors, resulting in stunning visual transformations.
                         </p>
                     </TextContainer>
