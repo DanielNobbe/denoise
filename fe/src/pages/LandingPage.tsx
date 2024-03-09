@@ -1,5 +1,6 @@
 import React from 'react';
-import styled, { css } from 'styled-components';
+import {styled} from 'styled-components';
+import {ImgComparisonSlider} from "@img-comparison-slider/react";
 
 const ProfileSection = styled.section`
   position: relative;
@@ -128,7 +129,10 @@ export const LandingPage = () => {
     return (
         <ProfileSection>
             <PicContainer>
-                <img src="/cover_image.png" alt="Cover image" />
+                <ImgComparisonSlider hover={true} style={{}}>
+                    <img slot="first" src="/after.png" style={{height: "350px", width: "300px"}} />
+                    <img slot="second" src="/before.png" style={{height: "350px", width: "300px"}} />
+                </ImgComparisonSlider>
             </PicContainer>
             <TextContainer>
                 <TextParagraph className="section__text__p1">Hello, we're</TextParagraph>
