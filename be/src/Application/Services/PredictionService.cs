@@ -61,10 +61,16 @@ public class PredictionService : IPredictionService
         return response.WithResult("Called prediction service successfully");
     }
 
-    public async Task<IServiceReturn<string>> DummyService()
+    public async Task<IServiceReturn<string>> CreateRandomNumber()
     {
         var response = new ServiceReturn<string>();
         return response.WithResult("Called dummy service successfully with random num of " + new Random().Next(0, 10));
+    }
+
+    public async Task<IServiceReturn<string>> GetHardcodedImage()
+    {
+        var response = new ServiceReturn<string>();
+        return response.WithResult(HardcodedImageEncoding.ImageString);
     }
 
     private PredictionOutDto PreparePredictionRequest()

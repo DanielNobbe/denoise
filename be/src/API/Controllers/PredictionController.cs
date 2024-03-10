@@ -24,7 +24,7 @@ public class PredictionController : ControllerBase
     public async Task<ActionResult<string>> Get()
     {
         // var predictionResponse = await _predictionService.FetchPrediction();
-        var predictionResponse = await _predictionService.DummyService();
+        var predictionResponse = await _predictionService.GetHardcodedImage();
         if (predictionResponse.HasErrors)
         {
             return UnprocessableEntity(new ApiError()
