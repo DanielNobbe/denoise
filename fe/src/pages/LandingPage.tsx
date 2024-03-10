@@ -20,7 +20,7 @@ const ProfileSection = styled.section`
 const PicContainer = styled.div`
   display: flex;
   height: 400px;
-  width: 400px;
+  width: 300px;
   margin: auto 0;
   @media screen and (max-width: 1200px) {
     width: 275px;
@@ -121,8 +121,8 @@ export const LandingPage = () => {
         <ProfileSection>
             <PicContainer>
                 <ImgComparisonSlider hover={true} style={{}}>
-                    <img slot="first" src="/before_noise_img_round.png" style={{height: "350px", width: "300px"}} />
-                    <img slot="second" src="/after_noise_img_round.png" style={{height: "350px", width: "300px"}} />
+                    <img slot="first" src="/after_fix_img_round.png" style={{height: "350px", width: "300px"}} />
+                    <img slot="second" src="/before_fix_img_round.png" style={{height: "350px", width: "300px"}} />
                 </ImgComparisonSlider>
             </PicContainer>
             <TextContainer>
@@ -132,7 +132,7 @@ export const LandingPage = () => {
                 <TextParagraph className="section__text__p1">Based in Zurich and Copenhagen</TextParagraph>
                 <Title>&nbsp;</Title>
                 <BtnContainer>
-                    <Button className="btn-color-2" onClick={() => window.location.href = 'https://denoise-be.fly.dev/prediction'} >
+                    <Button className="btn-color-2" onClick={() => window.location.href = 'https://denoise-be-patient-log-8697.fly.dev/prediction'} >
                         Backend
                     </Button>
                     <Button className="btn-color-1" onClick={() => window.location.href = './index.html#contact'}>
