@@ -1,9 +1,9 @@
-# fly.toml app configuration file generated for denoise-be on 2024-03-11T01:16:09+01:00
+# fly.toml app configuration file generated for denoise-be-black-waterfall-4620-small-waterfall-9942 on 2024-03-11T01:32:53+01:00
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = 'denoise-be'
+app = 'denoise-be-black-waterfall-4620-small-waterfall-9942'
 primary_region = 'ams'
 
 [build]

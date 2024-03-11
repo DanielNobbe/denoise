@@ -122,10 +122,11 @@ export const ServicePage = () => {
     const [processedImage, setProcessedImage] = useState("");
 
     const processImage = async () => {
+        setIsImageProcessed(true);
         try {
-            const response = await fetch('https://denoise-be-patient-log-8697.fly.dev/prediction');
+            const response = await fetch('https://denoise-be-black-waterfall-4620-small-waterfall-9942.fly.dev/prediction');
             if (!response.ok) return;
-            const data = await response.json();
+            const data = await response.text();
             console.log(data);
             setProcessedImage(data);
         } catch (error) {
@@ -175,7 +176,7 @@ export const ServicePage = () => {
                                 Process image
                             </MissingUploadText>
                         :
-                            <img src={processedImage} style={{height: "400px", width: "400px"}} />
+                            <img src={`data:image/png;base64,${processedImage}`} style={{height: "400px", width: "400px"}} />
                         }
                     </DetailsContainer>
                     <DetailsContainer>
@@ -184,8 +185,8 @@ export const ServicePage = () => {
                             <MissingProcessText>Waiting for {!isImageUploaded ? "image upload" : "image processing"}</MissingProcessText>
                             :
                             <ImgComparisonSlider hover={true} style={{}}>
-                                <img slot="first" src="/transparent_image.png" style={{height: "400px", width: "400px"}} />
-                                <img slot="second" src="/transparent_image.png" style={{height: "400px", width: "400px"}} />
+                                <img slot="first" src={selectedImage} style={{height: "400px", width: "400px"}} />
+                                <img slot="second" src={`data:image/png;base64,${processedImage}`} style={{height: "400px", width: "400px"}} />
                             </ImgComparisonSlider>
                         }
                     </DetailsContainer>

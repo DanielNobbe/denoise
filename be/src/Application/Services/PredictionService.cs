@@ -70,7 +70,7 @@ public class PredictionService : IPredictionService
     public async Task<IServiceReturn<string>> GetHardcodedImage()
     {
         var response = new ServiceReturn<string>();
-        return response.WithResult("data:image/png;base64," + HardcodedImageEncoding.ImageString);
+        return response.WithResult(HardcodedImageEncoding.ImageString);
     }
 
     private PredictionOutDto PreparePredictionRequest()

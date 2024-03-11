@@ -132,7 +132,7 @@ export const LandingPage = () => {
                 <TextParagraph className="section__text__p1">Based in Zurich and Copenhagen</TextParagraph>
                 <Title>&nbsp;</Title>
                 <BtnContainer>
-                    <Button className="btn-color-2" onClick={() => window.location.href = 'https://denoise-be-patient-log-8697.fly.dev/prediction'} >
+                    <Button className="btn-color-2" onClick={() => window.location.href = 'https://denoise-be-black-waterfall-4620-small-waterfall-9942.fly.dev/prediction'} >
                         Backend
                     </Button>
                     <Button className="btn-color-1" onClick={() => window.location.href = './#contact'}>
