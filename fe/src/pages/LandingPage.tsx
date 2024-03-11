@@ -135,7 +135,7 @@ export const LandingPage = () => {
                     <Button className="btn-color-2" onClick={() => window.location.href = 'https://denoise-be-patient-log-8697.fly.dev/prediction'} >
                         Backend
                     </Button>
-                    <Button className="btn-color-1" onClick={() => window.location.href = './index.html#contact'}>
+                    <Button className="btn-color-1" onClick={() => window.location.href = './#contact'}>
                         Contact Info
                     </Button>
                 </BtnContainer>
@@ -152,7 +152,7 @@ export const LandingPage = () => {
                     />
                 </SocialsContainer>
             </TextContainer>
-            <Arrow src="/arrow.png" alt="Arrow icon" onClick={() => window.location.href = './index.html#services'} />
+            <Arrow src="/arrow.png" alt="Arrow icon" onClick={() => window.location.href = './#services'} />
         </ProfileSection>
     );
 };

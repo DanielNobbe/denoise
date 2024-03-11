@@ -1,6 +1,7 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 import {useState} from "react";
+import {Link} from "react-router-dom";
 
 const DesktopNav = styled.nav`
   display: flex;
@@ -111,6 +112,31 @@ const NavLinks = styled.ul`
   }
 `;
 
+const NavItem = styled.li`
+  position: relative;
+`;
+
+const DropdownLink = styled.a`
+  display: block;
+  cursor: pointer;
+  font-size: 12px;
+  padding: 8px 0px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+`;
+
+const Dropdown = styled.div`
+  z-index: 1;
+  position: absolute;
+  right: 0;
+  text-align: end;
+  display: none;
+  ${NavItem}:hover &,
+  & :hover {
+    display: block;
+  }
+`;
+
 export const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const toggleMenu = () => {
@@ -123,10 +149,17 @@ export const Navbar = () => {
                 <LogoContainer>Denoise</LogoContainer>
                 <div>
                     <NavLinks>
-                        <li><a href="#services">Services</a></li>
-                        <li><a href="#examples">Examples</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#contact">Contact</a></li>
+                        <NavItem>
+                            <a href="./#services">Services</a>
+                            <Dropdown>
+                                <DropdownLink><Link to="/services">De-noise</Link></DropdownLink>
+                                <DropdownLink><Link to="/services">De-blur</Link></DropdownLink>
+                                <DropdownLink><Link to="/services">Color correction</Link></DropdownLink>
+                            </Dropdown>
+                        </NavItem>
+                        <NavItem><a href="./#examples">Examples</a></NavItem>
+                        <NavItem><a href="./#about">About</a></NavItem>
+                        <NavItem><a href="./#contact">Contact</a></NavItem>
                     </NavLinks >
                 </div>
             </DesktopNav>

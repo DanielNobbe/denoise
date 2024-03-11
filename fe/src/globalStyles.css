@@ -47,7 +47,6 @@ section {
     min-height: 100vh;
     margin: 0 10rem;
     box-sizing: border-box;
-    /*min-height: fit-content;*/
 }
 
 article {

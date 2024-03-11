@@ -142,7 +142,7 @@ export const ExamplesPage = () => {
                     </DetailsContainerWithColor>
                 </AboutContainer>
             </ServicesDetailsContainer>
-            <Arrow src="/arrow.png" alt="Arrow icon" onClick={() => window.location.href = './index.html#about'} />
+            <Arrow src="/arrow.png" alt="Arrow icon" onClick={() => window.location.href = './#about'} />
         </ExamplesSection>
     );
 };

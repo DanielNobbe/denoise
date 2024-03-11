@@ -128,7 +128,7 @@ export const AboutPage = () => {
                     </TextContainer>
                 </AboutDetailsContainer>
             </SectionContainer>
-            <Arrow src="/arrow.png" alt="Arrow icon" onClick={() => window.location.href = './index.html#contact'} />
+            <Arrow src="/arrow.png" alt="Arrow icon" onClick={() => window.location.href = './#contact'} />
         </AboutSection>
     );
 };

@@ -57,10 +57,10 @@ export const Footer = () => {
         <FooterContainer>
             <Nav>
                 <NavLinks>
-                    <NavLinkItem><a href="#services">Services</a></NavLinkItem>
-                    <NavLinkItem><a href="#examples">Examples</a></NavLinkItem>
-                    <NavLinkItem><a href="#about">About</a></NavLinkItem>
-                    <NavLinkItem><a href="#contact">Contact</a></NavLinkItem>
+                    <NavLinkItem><a href="./#services">Services</a></NavLinkItem>
+                    <NavLinkItem><a href="./#examples">Examples</a></NavLinkItem>
+                    <NavLinkItem><a href="./#about">About</a></NavLinkItem>
+                    <NavLinkItem><a href="./#contact">Contact</a></NavLinkItem>
                 </NavLinks>
             </Nav>
             <Paragraph>Rediscover lost details and sharpen every pixel with our advanced image enhancement suite</Paragraph>

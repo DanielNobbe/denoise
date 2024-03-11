@@ -1,9 +1,9 @@
-# fly.toml app configuration file generated for denoise-be-patient-log-8697 on 2024-03-10T22:38:25+01:00
+# fly.toml app configuration file generated for denoise-be on 2024-03-11T01:16:09+01:00
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = 'denoise-be-patient-log-8697'
+app = 'denoise-be'
 primary_region = 'ams'
 
 [build]

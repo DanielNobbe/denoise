@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import {ImgComparisonSlider} from "@img-comparison-slider/react";
+import {Link} from "react-router-dom";
 
 const Button = styled.button`
   position: absolute;
@@ -21,7 +22,7 @@ const Button = styled.button`
   }
   &.btn-color-1,
   &.btn-color-2:hover {
-    background: rgb(53, 53, 53);
+    background-color: rgb(53, 53, 53);
     color: white;
   }
   &.btn-color-1:hover {
@@ -29,9 +30,6 @@ const Button = styled.button`
   }
   &.btn-color-2 {
     background: none;
-  }
-  &.btn-color-2:hover {
-    border: rgb(255, 255, 255) 0.1rem solid;
   }
 `;
 
@@ -168,11 +166,8 @@ export const ServicesPage = () => {
                                 De-noising is a digital image processing technique aimed at reducing or eliminating noise, such as graininess or pixelation, from images, resulting in clearer and smoother visuals by enhancing the signal-to-noise ratio.
                             </p>
                         </TextContainer>
-                        <Button
-                            className="btn-color-2"
-                            onClick={() => { window.location.href = 'https://en.wikipedia.org/wiki/Noise_reduction/'; }}
-                        >
-                            Try it out
+                        <Button className="btn-color-2">
+                            <Link to="/services">Try it out</Link>
                         </Button>
                     </DetailsContainer>
                     <DetailsContainer>
@@ -212,11 +207,8 @@ export const ServicesPage = () => {
                                 De-blurring is an image enhancement process designed to restore sharpness and clarity to blurred or out-of-focus images, utilizing algorithms to reverse the effects of motion blur or lens imperfections, thereby improving overall image quality and detail.
                             </p>
                         </TextContainer>
-                        <Button
-                            className="btn-color-2"
-                            onClick={() => { window.location.href = 'https://en.wikipedia.org/wiki/Noise_reduction/'; }}
-                        >
-                            Try it out
+                        <Button className="btn-color-2">
+                            <Link to="/services">Try it out</Link>
                         </Button>
                     </DetailsContainer>
                     <DetailsContainer>
@@ -256,11 +248,8 @@ export const ServicesPage = () => {
                                 Color correction is the process of adjusting and balancing colors in an image to ensure accurate and consistent representation, correcting any color casts, improving overall color fidelity, and enhancing the visual appeal of the image.
                             </p>
                         </TextContainer>
-                        <Button
-                            className="btn-color-2"
-                            onClick={() => { window.location.href = 'https://en.wikipedia.org/wiki/Noise_reduction/'; }}
-                        >
-                            Try it out
+                        <Button className="btn-color-2">
+                            <Link to="/services">Try it out</Link>
                         </Button>
                     </DetailsContainer>
                 </AboutContainer>
@@ -295,15 +284,12 @@ export const ServicesPage = () => {
                             Combining de-noising, de-blurring, and color correction technologies, our image enhancement solution delivers unparalleled results by first eliminating noise and blur, then refining color accuracy and balance. This holistic approach ensures that images are not only clearer and sharper but also exhibit vibrant, true-to-life colors, resulting in stunning visual transformations.
                         </p>
                     </TextContainer>
-                    <Button
-                        className="btn-color-2"
-                        onClick={() => { window.location.href = 'https://en.wikipedia.org/wiki/Noise_reduction/'; }}
-                    >
-                        Try it out
+                    <Button className="btn-color-2">
+                        <Link to="/services">Try it out</Link>
                     </Button>
                 </DetailsContainer>
             </ServicesDetailsContainer>
-            <Arrow src="/arrow.png" alt="Arrow icon" onClick={() => window.location.href = './index.html#examples'} />
+            <Arrow src="/arrow.png" alt="Arrow icon" onClick={() => window.location.href = './#examples'} />
         </ServicesSection>
     );
 };
