@@ -22,7 +22,7 @@ public class PredictionController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<ActionResult<string>> Get([FromBody] ImageEncodingInDto imageEncodingInDto)
+    public async Task<ActionResult<string>> FetchPredictionForImage([FromBody] ImageEncodingInDto imageEncodingInDto)
     {
         var predictionResponse = await _predictionService.FetchPrediction(imageEncodingInDto.ImageEncoding);
         // var predictionResponse = await _predictionService.GetHardcodedImage();
