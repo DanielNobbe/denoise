@@ -23,11 +23,14 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy(name: UiCorsPolicy, policy =>
     {
-        policy.WithOrigins(
-            "http://localhost:3000",
-            "https://localhost:3000",
-            "https://denoise.netlify.app"
-        ).AllowAnyHeader();
+        policy
+            .WithOrigins(
+                "http://localhost:3000",
+                "https://localhost:3000",
+                "https://denoise.netlify.app"
+            )
+            .AllowAnyHeader()
+            .AllowAnyMethod();
     });
 });
 

@@ -127,7 +127,11 @@ export const ServicePage = () => {
             var base64result = (selectedImage ?? "").split(',')[1];
             const response = await fetch('https://denoise-be.fly.dev/prediction', {
                 method: "POST",
-                headers: {"Content-Type": "application/json"},
+                mode: "cors",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Access-Control-Allow-Origin": "*",
+                },
                 body: JSON.stringify({"imageEncoding": base64result}),
             });
             if (!response.ok) return;

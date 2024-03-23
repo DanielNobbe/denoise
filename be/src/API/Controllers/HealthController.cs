@@ -6,10 +6,10 @@ namespace API.Controllers;
 [Route("health")]
 public class HealthController : ControllerBase
 {
-    private readonly ILogger<PredictionController> _logger;
+    private readonly ILogger<HealthController> _logger;
 
     public HealthController(
-        ILogger<PredictionController> logger
+        ILogger<HealthController> logger
     )
     {
         _logger = logger;

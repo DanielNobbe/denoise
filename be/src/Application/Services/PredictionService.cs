@@ -38,37 +38,6 @@ public class PredictionService : IPredictionService
         };
     }
 
-    public string RemoveAlphaChannel(string base64ImageData)
-    {
-        byte[] imageDataBytes = Convert.FromBase64String(base64ImageData);
-        using (MemoryStream ms = new MemoryStream(imageDataBytes))
-        {
-            using (Bitmap bitmap = new Bitmap(ms))
-            {
-                // Check if the image has an alpha channel (4 channels)
-                if (bitmap.PixelFormat == System.Drawing.Imaging.PixelFormat.Format32bppArgb)
-                {
-                    // Create a new bitmap without an alpha channel (3 channels)
-                    Bitmap newBitmap = new Bitmap(bitmap.Width, bitmap.Height, System.Drawing.Imaging.PixelFormat.Format24bppRgb);
-
-                    // Draw the original image onto the new bitmap, discarding the alpha channel
-                    using (Graphics g = Graphics.FromImage(newBitmap))
-                    {
-                        g.DrawImage(bitmap, 0, 0, bitmap.Width, bitmap.Height);
-                    }
-
-                    // Save the new bitmap to a memory stream
-                    using (MemoryStream newMs = new MemoryStream())
-                    {
-                        newBitmap.Save(newMs, System.Drawing.Imaging.ImageFormat.Png);
-                        return Convert.ToBase64String(newMs.ToArray());
-                    }
-                }
-            }
-        }
-        return base64ImageData;
-    }
-
     public async Task<IServiceReturn<string>> FetchPrediction(string imageEncoding)
     {
         var response = new ServiceReturn<string>();
@@ -105,6 +74,37 @@ public class PredictionService : IPredictionService
     {
         var response = new ServiceReturn<string>();
         return response.WithResult(HardcodedImageEncoding.ImageString);
+    }
+
+    private string RemoveAlphaChannel(string base64ImageData)
+    {
+        byte[] imageDataBytes = Convert.FromBase64String(base64ImageData);
+        using (MemoryStream ms = new MemoryStream(imageDataBytes))
+        {
+            using (Bitmap bitmap = new Bitmap(ms))
+            {
+                // Check if the image has an alpha channel (4 channels)
+                if (bitmap.PixelFormat == System.Drawing.Imaging.PixelFormat.Format32bppArgb)
+                {
+                    // Create a new bitmap without an alpha channel (3 channels)
+                    Bitmap newBitmap = new Bitmap(bitmap.Width, bitmap.Height, System.Drawing.Imaging.PixelFormat.Format24bppRgb);
+
+                    // Draw the original image onto the new bitmap, discarding the alpha channel
+                    using (Graphics g = Graphics.FromImage(newBitmap))
+                    {
+                        g.DrawImage(bitmap, 0, 0, bitmap.Width, bitmap.Height);
+                    }
+
+                    // Save the new bitmap to a memory stream
+                    using (MemoryStream newMs = new MemoryStream())
+                    {
+                        newBitmap.Save(newMs, System.Drawing.Imaging.ImageFormat.Png);
+                        return Convert.ToBase64String(newMs.ToArray());
+                    }
+                }
+            }
+        }
+        return base64ImageData;
     }
 
     private PredictionOutDto PreparePredictionRequest(string imageEncoding)
