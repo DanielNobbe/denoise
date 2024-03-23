@@ -124,7 +124,7 @@ export const ServicePage = () => {
     const processImage = async () => {
         setIsImageProcessed(true);
         try {
-            const response = await fetch('https://denoise-be-black-waterfall-4620-small-waterfall-9942.fly.dev/prediction');
+            const response = await fetch('https://denoise-be.fly.dev');
             if (!response.ok) return;
             const data = await response.text();
             setProcessedImage(data);
