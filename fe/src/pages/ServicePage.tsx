@@ -116,15 +116,42 @@ const FileInput = styled.input`
 `;
 
 export const ServicePage = () => {
-    const [isImageUploaded, setIsImageUploaded] = useState(false);
-    const [selectedImage, setSelectedImage] = useState(null);
-    const [isImageProcessed, setIsImageProcessed] = useState(false);
-    const [processedImage, setProcessedImage] = useState("");
+    const [selectedImage, setSelectedImage] = useState<string>("");
+    const [processedImage, setProcessedImage] = useState<string>("");
+
+    const convertToRGB = (encodedImg: string) => {
+        const img = new Image();
+        img.onload = () => {
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+            if (ctx == null) return;
+
+            canvas.width = img.width;
+            canvas.height = img.height;
+
+            ctx.drawImage(img, 0, 0, img.width, img.height);
+
+            const imageData = ctx.getImageData(0, 0, img.width, img.height);
+            const data = imageData.data;
+
+            // Convert to RGB
+            for (let i = 0; i < data.length; i += 4) {
+                // Set alpha channel to 255 (fully opaque)
+                data[i + 3] = 255;
+            }
+
+            ctx.putImageData(imageData, 0, 0);
+
+            const convertedBase64 = canvas.toDataURL('image/jpeg');
+            var base64result = convertedBase64.split(',')[1];
+            setSelectedImage(base64result);
+        };
+
+        img.src = encodedImg;
+    };
 
     const processImage = async () => {
-        setIsImageProcessed(true);
         try {
-            var base64result = (selectedImage ?? "").split(',')[1];
             const response = await fetch('https://denoise-be.fly.dev/prediction', {
                 method: "POST",
                 mode: "cors",
@@ -132,7 +159,7 @@ export const ServicePage = () => {
                     "Content-Type": "application/json",
                     "Access-Control-Allow-Origin": "*",
                 },
-                body: JSON.stringify({"imageEncoding": base64result}),
+                body: JSON.stringify({"imageEncoding": selectedImage}),
             });
             if (!response.ok) return;
             const data = await response.text();
@@ -143,12 +170,11 @@ export const ServicePage = () => {
     };
 
     const handleImageChange = (e: any) => {
-        setIsImageUploaded(true);
         const file = e.target.files[0];
         if (file) {
             const reader: any = new FileReader();
             reader.onloadend = () => {
-                setSelectedImage(reader.result);
+                convertToRGB(reader.result);
             };
             reader.readAsDataURL(file);
         }
@@ -172,12 +198,12 @@ export const ServicePage = () => {
                                 <img src="/transparent_image.png" style={{height: "400px", width: "400px"}} />
                             </>
                             :
-                            <img src={selectedImage} style={{height: "400px", width: "400px"}} />
+                            <img src={`data:image/png;base64,${selectedImage}`} style={{height: "400px", width: "400px"}} />
                         }
                     </DetailsContainer>
                     <DetailsContainer>
                         <ServicesSubTitle>After</ServicesSubTitle>
-                        {!selectedImage ?
+                        {selectedImage === "" ?
                             <MissingProcessText>Waiting for image upload</MissingProcessText>
                         : processedImage === "" ?
                             <MissingUploadText onClick={processImage}>
@@ -189,11 +215,11 @@ export const ServicePage = () => {
                     </DetailsContainer>
                     <DetailsContainer>
                         <ServicesSubTitle>Comparison</ServicesSubTitle>
-                        {!selectedImage || !isImageProcessed ?
-                            <MissingProcessText>Waiting for {!isImageUploaded ? "image upload" : "image processing"}</MissingProcessText>
+                        {processedImage === "" ?
+                            <MissingProcessText>Waiting for {selectedImage === "" ? "image upload" : "image processing"}</MissingProcessText>
                             :
                             <ImgComparisonSlider hover={true} style={{}}>
-                                <img slot="first" src={selectedImage} style={{height: "400px", width: "400px"}} />
+                                <img slot="first" src={`data:image/png;base64,${selectedImage}`} style={{height: "400px", width: "400px"}} />
                                 <img slot="second" src={`data:image/png;base64,${processedImage}`} style={{height: "400px", width: "400px"}} />
                             </ImgComparisonSlider>
                         }
