@@ -124,7 +124,12 @@ export const ServicePage = () => {
     const processImage = async () => {
         setIsImageProcessed(true);
         try {
-            const response = await fetch('https://denoise-be.fly.dev');
+            var base64result = (selectedImage ?? "").split(',')[1];
+            const response = await fetch('https://denoise-be.fly.dev/prediction', {
+                method: "POST",
+                headers: {"Content-Type": "application/json"},
+                body: JSON.stringify({"imageEncoding": base64result}),
+            });
             if (!response.ok) return;
             const data = await response.text();
             setProcessedImage(data);

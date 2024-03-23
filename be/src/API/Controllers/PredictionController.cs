@@ -1,5 +1,6 @@
 using API.Errors;
 using Application.Interfaces;
+using Application.Models.InDto;
 using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers;
@@ -20,11 +21,11 @@ public class PredictionController : ControllerBase
         _predictionService = predictionService;
     }
 
-    [HttpGet]
-    public async Task<ActionResult<string>> Get()
+    [HttpPost]
+    public async Task<ActionResult<string>> Get([FromBody] ImageEncodingInDto imageEncodingInDto)
     {
-        // var predictionResponse = await _predictionService.FetchPrediction();
-        var predictionResponse = await _predictionService.GetHardcodedImage();
+        var predictionResponse = await _predictionService.FetchPrediction(imageEncodingInDto.ImageEncoding);
+        // var predictionResponse = await _predictionService.GetHardcodedImage();
         if (predictionResponse.HasErrors)
         {
             return UnprocessableEntity(new ApiError()
